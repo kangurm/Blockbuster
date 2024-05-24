@@ -7,7 +7,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-34, -23)
+position = Vector2(-81, -15)
 shape = SubResource("RectangleShape2D_ciiwn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
