@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bupmau7lvu45g"]
+
+[ext_resource type="Script" path="res://Box/BreakableBox.gd" id="1_xlsk7"]
+[ext_resource type="Texture2D" uid="uid://2h404ii8vy06" path="res://assets/Blocks/grass.jpg" id="2_ag4vc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv56x"]
+size = Vector2(227.273, 222.727)
+
+[node name="BreakableBox" type="Node2D"]
+scale = Vector2(0.495, 0.5)
+script = ExtResource("1_xlsk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.968627, 0, 0.615686, 1)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_ag4vc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-4.33488e-06, -2.27271)
+shape = SubResource("RectangleShape2D_hv56x")

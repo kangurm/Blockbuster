@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1bbswujoii86"]
+
+[ext_resource type="Texture2D" uid="uid://2h404ii8vy06" path="res://assets/Blocks/grass.jpg" id="1_dtjep"]
+[ext_resource type="Script" path="res://Box/BreakableBox.gd" id="1_mme87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv56x"]
+size = Vector2(227.273, 222.727)
+
+[node name="BreakableBox" type="Node2D"]
+script = ExtResource("1_mme87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_dtjep")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-4.33488e-06, -2.27271)
+shape = SubResource("RectangleShape2D_hv56x")
