@@ -24,5 +24,18 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	# Moving Animation
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * SPEED
+		# Flip Sprite Horizontal
+		if velocity.x < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+		
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
 	move_and_slide()
+
+
