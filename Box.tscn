@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3ipttj0mem55"]
+[gd_scene load_steps=3 format=3 uid="uid://d3ipttj0mem55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ciiwn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2f7f3"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-34, -23)
 shape = SubResource("RectangleShape2D_ciiwn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(28, -15)
+shape = SubResource("CircleShape2D_2f7f3")
