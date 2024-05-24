@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3ipttj0mem55"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ciiwn"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-34, -23)
-shape = SubResource("RectangleShape2D_ciiwn")
