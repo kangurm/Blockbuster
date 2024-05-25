@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba7hrjgje3yyl"]
+
+[ext_resource type="Texture2D" uid="uid://c24vi22me48ls" path="res://Refinery/furnace-off.jpg" id="1_i3usj"]
+
+[node name="Refinery" type="Node2D"]
+scale = Vector2(0.021, 0.021)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(1, 1.04222)
+texture = ExtResource("1_i3usj")
