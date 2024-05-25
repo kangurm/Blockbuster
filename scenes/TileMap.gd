@@ -39,10 +39,24 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 			emit_signal('tile_broken', block_type)
 
 
-
-
-func mine(event) :
+func throw_object(event):
+	var sprite = Sprite2D.new()
+	sprite.texture = load('res://projectile/doll.png')
+	sprite.scale = Vector2(0.02,0.02)
+	var playerPos =  get_node('../../Node2D/player').global_position
+	sprite.position = playerPos
+	sprite.look_at(get_global_mouse_position())
+	sprite.rotate(-30)
+	add_child(sprite)
+	
+	var tween = create_tween()
+	tween.tween_property(sprite, 'position',get_global_mouse_position(), wait)
 	await get_tree().create_timer(wait).timeout
+	remove_child(sprite)
+	
+
+
+func mine(event):
 	var mouse_position = get_global_mouse_position()
 	var screen_size = get_viewport_rect().size
 	var center = Vector2(screen_size.x/2, screen_size.y/2)
@@ -51,6 +65,11 @@ func mine(event) :
 	var distance = local_to_map(rel_position)
 	var tile_mouse_pos = local_to_map(mouse_position)
 	var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
+	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach:
+		throw_object(event)
+	await get_tree().create_timer(wait).timeout
+	
+	
 	if tier == 0:
 		if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, tile_mouse_pos) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, tile_mouse_pos) != 0 :
 			break_block(event, tile_atlas_coord, tile_mouse_pos)
@@ -93,7 +112,7 @@ func _input (event):
 	if Input.is_action_just_pressed("pressJ"):
 		if tier >0:
 			tier -=1
-			wait -+ 0.1
+			wait -= 0.1
 			print('breaker tier:', tier)
 	if Input.is_action_just_pressed("mb_left"):
 		while true:
