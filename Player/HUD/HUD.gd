@@ -44,6 +44,10 @@ func UI_update_item_count(key):
 	prefix_inv.get_node(key).get_node("label" + key).text = str(globals.block_inv[key])
 
 func _update_inventory_UI(key):
+	if key == "all":
+		for child in prefix_inv.get_children():
+			child.queue_free()
+		return
 	print(key)
 	if (globals.block_inv[key] > 0 && prefix_inv.has_node(key)) :
 		UI_update_item_count(key)
