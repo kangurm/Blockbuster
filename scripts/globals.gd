@@ -1,5 +1,23 @@
 extends Node
 
+var toolTier = 0
+
+const fuel_value = {
+	"dirt": 1,
+	"stone": 2,
+	"granite": 4,
+	"obsidian": 8,
+	"oil_shale": 16,
+}
+
+var refinery_inv = {
+	"dirt": 0,
+	"stone": 0,
+	"granite": 0,
+	"obsidian": 0,
+	"oil_shale": 0,
+}
+
 var block_inv = {
 	"dirt": 0,
 	"stone": 0,
