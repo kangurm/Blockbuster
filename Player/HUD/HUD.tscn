@@ -1,5 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chqcgd8hvxin2"]
 
+[ext_resource type="Script" path="res://Player/HUD/HUD.gd" id="1_c8cxp"]
 [ext_resource type="Texture2D" uid="uid://u7pniw1ve0nk" path="res://placeholder.png" id="1_fn0lx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fnq0"]
@@ -7,6 +8,7 @@ atlas = ExtResource("1_fn0lx")
 region = Rect2(0, 32, 16, 16)
 
 [node name="HUD" type="Node2D"]
+script = ExtResource("1_c8cxp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -28,33 +30,57 @@ offset_right = 1023.0
 offset_bottom = 119.0
 pivot_offset = Vector2(20, 20)
 
+<<<<<<< Updated upstream
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer"]
+=======
+[node name="Block1" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/Block1"]
+>>>>>>> Stashed changes
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_2fnq0")
 centered = false
 
+<<<<<<< Updated upstream
 [node name="BoxContainer2" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer2"]
+=======
+[node name="Block1_Count" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/Block1_Count"]
+>>>>>>> Stashed changes
 layout_mode = 2
 size_flags_horizontal = 8
 text = "50"
 justification_flags = 162
 
+<<<<<<< Updated upstream
 [node name="BoxContainer3" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer3"]
+=======
+[node name="Block2" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/Block2"]
+>>>>>>> Stashed changes
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_2fnq0")
 centered = false
 
+<<<<<<< Updated upstream
 [node name="BoxContainer4" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
 layout_mode = 2
 
@@ -131,6 +157,12 @@ centered = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer12"]
+=======
+[node name="Block2_Count" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/Block2_Count"]
+>>>>>>> Stashed changes
 layout_mode = 2
 size_flags_horizontal = 8
 text = "50"

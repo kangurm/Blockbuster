@@ -2,7 +2,7 @@ extends TileMap
 
 signal tile_broken
 
-var block_inv = {
+@export var block_inv = {
 	"dirt": 0,
 	"stone": 0,
 	"granite": 0,
@@ -17,6 +17,7 @@ var current_tile_pos: Vector2i
 func break_block(event, tile_atlas_coord, tile_mouse_pos):
 	var coordX = tile_atlas_coord.x
 	var coordY = tile_atlas_coord.y
+<<<<<<< Updated upstream
 	
 	if coordX < 4 && coordX > -1:
 		set_cell(0, tile_mouse_pos,1, Vector2i(coordX+1, coordY))
@@ -33,6 +34,26 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 		if coordY == 0:
 			block_inv['oil_shale'] +=1
 		set_cell(0, tile_mouse_pos, -1)
+=======
+	print('tier:', tier)
+	print('y coord:',coordY)
+	if tier >=coordY:
+		if coordX < 4 && coordX > -1:
+			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+1, coordY))
+		else:
+			if coordY == 4:
+				block_inv['dirt'] += 1
+			if coordY == 3:
+				block_inv['stone'] += 1
+			if coordY == 2 :
+				block_inv['granite'] +=1
+			if coordY == 1:
+				block_inv['obsidian'] +=1
+			if coordY == 0:
+				block_inv['oil_shale'] +=1
+			set_cell(0, tile_mouse_pos, -1)
+			emit_signal("tile_broken")
+>>>>>>> Stashed changes
 
 
 
@@ -78,7 +99,7 @@ func mine(event) :
 				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, coord) != 0 :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
-	print(block_inv)
+	
 
 func _input (event):
 	
