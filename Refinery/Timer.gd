@@ -14,4 +14,5 @@ func _process(delta):
 	pass
 
 func activate_timer():
+	print("timer started")
 	self.start(60)
