@@ -1,45 +1,56 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba7hrjgje3yyl"]
 
-[ext_resource type="Texture2D" uid="uid://c24vi22me48ls" path="res://Refinery/furnace-off.jpg" id="1_i3usj"]
 [ext_resource type="Script" path="res://Refinery/Refinery.gd" id="1_yj67s"]
+[ext_resource type="Texture2D" uid="uid://vm8lvqo31lkj" path="res://Refinery/cute.png" id="2_7slai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqja"]
 size = Vector2(809.524, 857.143)
 
-[sub_resource type="LabelSettings" id="LabelSettings_m064d"]
-font_size = 500
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts0pl"]
+bg_color = Color(0.937255, 0.227451, 0.0470588, 0.501961)
+border_width_left = 100
+border_width_right = 100
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
 
 [node name="Refinery" type="Node2D"]
-scale = Vector2(0.021, 0.021)
 script = ExtResource("1_yj67s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_i3usj")
+position = Vector2(0, -3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7slai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false
 shape = SubResource("RectangleShape2D_dmqja")
 disabled = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = -333.333
-offset_top = -666.667
-offset_right = 333.667
-offset_bottom = -428.667
-label_settings = SubResource("LabelSettings_m064d")
-horizontal_alignment = 1
-
 [node name="OneSecondTimer" type="Timer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -1380.95
-offset_top = -857.143
-offset_right = 1334.05
-offset_bottom = -428.143
+offset_left = -42.0
+offset_top = -50.0
+offset_right = 279.0
+offset_bottom = 1851.0
+scale = Vector2(0.0218023, 0.0499609)
+theme_override_font_sizes/font_size = 1000
+theme_override_styles/fill = SubResource("StyleBoxFlat_ts0pl")
 max_value = 60.0
 step = 1.0
+fill_mode = 3
 show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 32.0
+offset_top = -69.0
+offset_right = 57.0
+offset_bottom = -27.0
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="OneSecondTimer" to="." method="_on_countdown_tick"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ely0qhtbl0et"]
+[gd_scene load_steps=12 format=3 uid="uid://ely0qhtbl0et"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_wlt4k"]
 [ext_resource type="Texture2D" uid="uid://gudos3wicbeq" path="res://Player/0 standby.png" id="2_dgsmm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://5o54ww34v6uq" path="res://Player/1 jump.png" id="4_5hdac"]
 [ext_resource type="Texture2D" uid="uid://cvt8tyg1ewkbk" path="res://Player/2 move.png" id="4_ib4uu"]
 [ext_resource type="Texture2D" uid="uid://vlemnnrhgvft" path="res://Player/3 move.png" id="5_6o527"]
+[ext_resource type="PackedScene" uid="uid://chqcgd8hvxin2" path="res://Player/HUD/HUD.tscn" id="9_ukv5w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcl07"]
 animations = [{
@@ -67,3 +68,6 @@ shape = SubResource("RectangleShape2D_qhbnb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
+
+[node name="Hud" parent="." instance=ExtResource("9_ukv5w")]
+position = Vector2(-1, 0)
