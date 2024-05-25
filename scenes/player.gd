@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 var score = 0
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var SPEED = 300.0
+@export var JUMP_DIRECTION = -1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -12,17 +12,19 @@ const ANIMATION_MOVE = "move"
 const ANIMATION_JUMP = "jump"
 var LAST_DIRECTION = 0
 
-
+const jump_height = 0.8
 func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		print(velocity.y, "|", gravity, "|", delta)
+		velocity.y += gravity*jump_height * delta
+		#print(velocity.y, "|", gravity, "|", delta)
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		$AnimatedSprite2D.animation = ANIMATION_JUMP
-		velocity.y = JUMP_VELOCITY
+		print(velocity.y)
+		velocity.y = JUMP_DIRECTION
+		print(velocity.y)
 		$AnimatedSprite2D.play()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -38,7 +40,7 @@ func _physics_process(delta):
 		
 		if is_on_floor():
 			$AnimatedSprite2D.animation = ANIMATION_MOVE
-			velocity = velocity.normalized() * SPEED
+			velocity = velocity.normalized() * SPEED #add jumping somewhere here
 			# Flip Sprite Horizontal (WALK/MOVE)
 			if velocity.x < 0:
 				$AnimatedSprite2D.flip_h = true
