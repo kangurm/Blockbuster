@@ -102,7 +102,7 @@ func mine(event):
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
 
-var dont_place = [Vector2i(1, -5), Vector2i(1, -4), Vector2i(1, -3), Vector2i(1, -2), Vector2i(1, -1), Vector2i(0, -5), Vector2i(0, -4), Vector2i(0, -3), Vector2i(0, -2), Vector2i(0, 0), Vector2i(-1, -5), Vector2i(-1, -4), Vector2i(-1, -3), Vector2i(-1, -2), Vector2i(-1, 0)]
+var dont_place = [  Vector2i(1, -2), Vector2i(1, -1), Vector2i(1, 0), Vector2i(0, -2), Vector2i(0, -1), Vector2i(0, 0),  Vector2i(-1, -2), Vector2i(-1, -1), Vector2i(-1, 0)]
 
 func _input (event):
 	
