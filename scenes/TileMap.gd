@@ -10,7 +10,7 @@ var block_inv = {
 	"oil_shale": 0,
 }
 
-var tier = 2
+var tier = 0
 var reach = 15
 var current_tile_pos: Vector2i
 
@@ -81,6 +81,13 @@ func mine(event) :
 	print(block_inv)
 
 func _input (event):
+	
+	if Input.is_action_just_pressed("mv_up"):
+		if tier < 4:
+			tier += 1
+	if Input.is_action_just_pressed("mv_down"):
+		if tier >0:
+			tier -=1
 	if Input.is_action_just_pressed("mb_left"):
 		while true:
 			if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
