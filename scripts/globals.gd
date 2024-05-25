@@ -3,11 +3,11 @@ extends Node
 var toolTier = 0
 
 const fuel_value = {
-	"dirt": 1,
-	"stone": 2,
+	"dirt": 16,
+	"stone": 8,
 	"granite": 4,
-	"obsidian": 8,
-	"oil_shale": 16,
+	"obsidian": 2,
+	"oil_shale": 1,
 }
 
 var refinery_inv = {

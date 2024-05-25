@@ -2,16 +2,16 @@ extends TileMap
 
 signal tile_broken
 
-var tier = 0
+var tier = globals.toolTier
 var wait = 0.1
 var reach = 15
 var current_tile_pos: Vector2i
 
 func break_block(event, tile_atlas_coord, tile_mouse_pos):
+	tier = globals.toolTier
 	var coordX = tile_atlas_coord.x
 	var coordY = tile_atlas_coord.y
 	var damage = tier - coordY +1
-	
 	if tier >=coordY:
 		if coordX + damage < 5 && coordX > -1:
 			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+damage, coordY))
@@ -105,10 +105,10 @@ func mine(event):
 func _input (event):
 	
 	if Input.is_action_just_pressed("pressI"):
-		if tier < 4:
-			tier += 1
+		if globals.toolTier < 4:
+			globals.toolTier += 1
 			wait += 0.1
-			print('breaker tier:', tier)
+			print('breaker globals.toolTier:', globals.toolTier)
 	if Input.is_action_just_pressed("pressJ"):
 		if tier >0:
 			tier -=1
