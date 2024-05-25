@@ -74,6 +74,7 @@ offset_top = -207.0
 offset_right = 359.0
 offset_bottom = 200.0
 texture = ExtResource("10_wdgt8")
+stretch_mode = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -19)
@@ -86,7 +87,6 @@ position = Vector2(8.0625, -20)
 shape = SubResource("RectangleShape2D_qhbnb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.6, 1.6)
 
 [node name="Hud" parent="." instance=ExtResource("9_ukv5w")]
 position = Vector2(-1, 0)
