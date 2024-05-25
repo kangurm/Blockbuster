@@ -8,5 +8,3 @@ var score = 0
 func _ready():
 	tile_map.tile_broken.connect(player._on_tile_broken)
 	
-
-
