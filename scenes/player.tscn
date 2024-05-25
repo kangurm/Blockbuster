@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cvt8tyg1ewkbk" path="res://Player/2 move.png" id="4_ib4uu"]
 [ext_resource type="Texture2D" uid="uid://vlemnnrhgvft" path="res://Player/3 move.png" id="5_6o527"]
 [ext_resource type="PackedScene" uid="uid://chqcgd8hvxin2" path="res://Player/HUD/HUD.tscn" id="9_ukv5w"]
-[ext_resource type="Texture2D" uid="uid://die063jcdhcy4" path="res://background.png" id="10_wdgt8"]
+[ext_resource type="Texture2D" uid="uid://cdtfn0ppdrnct" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="11_8nve3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcl07"]
 animations = [{
@@ -68,25 +68,21 @@ size = Vector2(15.875, 40)
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_wlt4k")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -361.0
-offset_top = -207.0
-offset_right = 359.0
-offset_bottom = 200.0
-texture = ExtResource("10_wdgt8")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, -19)
 scale = Vector2(0.0394978, 0.04)
 sprite_frames = SubResource("SpriteFrames_bcl07")
 animation = &"idle"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(8.0625, -20)
 shape = SubResource("RectangleShape2D_qhbnb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.6, 1.6)
 
 [node name="Hud" parent="." instance=ExtResource("9_ukv5w")]
-position = Vector2(-1, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 1, 0.592157)
+shadow_filter = 2
+shadow_filter_smooth = 5.0
+texture = ExtResource("11_8nve3")
+texture_scale = 1.6
