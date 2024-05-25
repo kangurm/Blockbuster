@@ -18,51 +18,61 @@ script = ExtResource("1_e5p4q")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-4205, -51)
-scale = Vector2(0.5, 0.5)
 motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(1500, 0)
+motion_mirroring = Vector2(4500, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
 position = Vector2(0, 16)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_0yndl")
 region_enabled = true
 region_rect = Rect2(0, 0, 9000, 1875)
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_repeat = 2
-position = Vector2(0, 1657)
-scale = Vector2(3, 3)
-texture = ExtResource("3_3mfsg")
-region_enabled = true
-region_rect = Rect2(0, 0, 3000, 470)
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-4205, -44)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(5464, 0)
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_repeat = 2
-position = Vector2(2.38419e-07, 3420)
-scale = Vector2(3, 3)
-texture = ExtResource("4_d6vvq")
-region_enabled = true
-region_rect = Rect2(0, 0, 3000, 705)
-
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_repeat = 2
-position = Vector2(-1.52588e-05, 5888)
-scale = Vector2(3, 3)
-texture = ExtResource("5_0g1es")
-region_enabled = true
-region_rect = Rect2(0, 0, 3000, 940)
-
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_repeat = 2
-position = Vector2(2, -2800)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-87, -1411)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_dhokb")
 region_enabled = true
-region_rect = Rect2(0, 0, 18000, 7680)
+region_rect = Rect2(0, 0, 21856, 7680)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-6072, -880)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(3072, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(0, 1657)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_3mfsg")
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 470)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(0, 2538)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_d6vvq")
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 705)
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(0, 3771)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_0g1es")
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 940)
 
 [node name="player" parent="." instance=ExtResource("2_kc10y")]
-position = Vector2(3106, -2783)
+position = Vector2(554, -441)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_njt13")
