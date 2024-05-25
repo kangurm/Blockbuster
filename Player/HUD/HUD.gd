@@ -5,17 +5,16 @@ var atlas_texture = preload("res://placeholder.png")
 
 func UI_add_inventory_container(key):
 	# create a box container to hold texture and label
-	var box_container = BoxContainer.new()
-	box_container.set_name(key)
-	prefix_inv.add_child(box_container)  # Use the variable, not the class name
-	box_container.custom_minimum_size = Vector2(50, 50)
+	var vertical_container = VFlowContainer.new()
+	vertical_container.set_name(key)
+	vertical_container.custom_minimum_size = Vector2(0, 200)
+	prefix_inv.add_child(vertical_container)	
 	
 	# add texture rect to box container
 	var texture_rect = TextureRect.new()
 	texture_rect.set_name(key)
-	box_container.add_child(texture_rect)
-	texture_rect.size_flags_horizontal = Control.SIZE_FILL
-	texture_rect.size_flags_vertical = Control.SIZE_FILL
+	texture_rect.custom_minimum_size = Vector2(100, 100)
+	vertical_container.add_child(texture_rect)	
 	
 	if key in globals.texture_regions:
 		var region = globals.texture_regions[key]
@@ -23,7 +22,7 @@ func UI_add_inventory_container(key):
 		atlas_tex.atlas = atlas_texture
 		atlas_tex.region = region
 		texture_rect.texture = atlas_tex
-		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		#texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 		print("added texture")
 	else:
 		print("Texture for key not found:", key)
@@ -32,7 +31,9 @@ func UI_add_inventory_container(key):
 	var label = Label.new()
 	label.set_name("label" + key)
 	label.text = str(globals.block_inv[key])
-	box_container.add_child(label)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_FILL
+	vertical_container.add_child(label)	
 	
 	print("Finished creating container")
 
