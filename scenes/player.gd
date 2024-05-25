@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity*jump_height * delta
+		velocity.y += gravity * delta
 		#print(velocity.y, "|", gravity, "|", delta)
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -40,7 +40,7 @@ func _physics_process(delta):
 		
 		if is_on_floor():
 			$AnimatedSprite2D.animation = ANIMATION_MOVE
-			velocity = velocity.normalized() * SPEED
+			velocity = velocity.normalized() * SPEED #add jumping somewhere here
 			# Flip Sprite Horizontal (WALK/MOVE)
 			if velocity.x < 0:
 				$AnimatedSprite2D.flip_h = true
