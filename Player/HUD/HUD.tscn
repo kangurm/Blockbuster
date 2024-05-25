@@ -1,16 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://chqcgd8hvxin2"]
+[gd_scene load_steps=3 format=3 uid="uid://chqcgd8hvxin2"]
 
 [ext_resource type="Texture2D" uid="uid://u7pniw1ve0nk" path="res://placeholder.png" id="1_fn0lx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1fdct"]
-resource_name = "TextureAtlas"
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fnq0"]
 atlas = ExtResource("1_fn0lx")
 region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_epeah"]
-resource_name = "block2"
-atlas = ExtResource("1_fn0lx")
-region = Rect2(0, 16, 16, 16)
 
 [node name="HUD" type="Node2D"]
 
@@ -18,24 +12,126 @@ region = Rect2(0, 16, 16, 16)
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = -8.0
-offset_right = -8.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 5.0
-offset_right = 58.0
-offset_bottom = 45.0
-scale = Vector2(1, 0.990817)
+custom_minimum_size = Vector2(1000, 100)
+layout_direction = 2
+layout_mode = 1
+offset_left = 23.0
+offset_top = 19.0
+offset_right = 1023.0
+offset_bottom = 119.0
+pivot_offset = Vector2(20, 20)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer"]
-position = Vector2(46, 48)
-scale = Vector2(5.96381, 5.96381)
-texture = SubResource("AtlasTexture_1fdct")
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer"]
-position = Vector2(46, 48)
-scale = Vector2(5.96381, 5.96381)
-texture = SubResource("AtlasTexture_epeah")
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2fnq0")
+centered = false
+
+[node name="BoxContainer2" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "50"
+justification_flags = 162
+
+[node name="BoxContainer3" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer3"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2fnq0")
+centered = false
+
+[node name="BoxContainer4" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "50"
+justification_flags = 162
+
+[node name="BoxContainer5" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer5"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2fnq0")
+centered = false
+
+[node name="BoxContainer6" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "50"
+justification_flags = 162
+
+[node name="BoxContainer7" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer7"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2fnq0")
+centered = false
+
+[node name="BoxContainer8" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "50"
+justification_flags = 162
+
+[node name="BoxContainer9" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer9"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2fnq0")
+centered = false
+
+[node name="BoxContainer10" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "50"
+justification_flags = 162
+
+[node name="BoxContainer11" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer/BoxContainer11"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2fnq0")
+centered = false
+
+[node name="BoxContainer12" type="BoxContainer" parent="CanvasLayer/Control/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HFlowContainer/BoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "50"
+justification_flags = 162

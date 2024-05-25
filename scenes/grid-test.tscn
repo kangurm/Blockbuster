@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0q181kjlx5ao"]
+[gd_scene load_steps=6 format=3 uid="uid://d0q181kjlx5ao"]
 
 [ext_resource type="Script" path="res://scenes/grid-test.gd" id="1_e5p4q"]
-[ext_resource type="TileSet" uid="uid://db1ab1ibfd118" path="res://tileset.tres" id="1_njt13"]
+[ext_resource type="TileSet" uid="uid://bjj2rwg43xy74" path="res://tileset.tres" id="1_njt13"]
 [ext_resource type="PackedScene" uid="uid://ely0qhtbl0et" path="res://scenes/player.tscn" id="2_kc10y"]
 [ext_resource type="Script" path="res://scenes/TileMap.gd" id="2_x7qx0"]
 [ext_resource type="PackedScene" uid="uid://ba7hrjgje3yyl" path="res://Refinery/Refinery.tscn" id="5_me1lq"]
@@ -20,6 +20,7 @@ script = ExtResource("2_x7qx0")
 
 [node name="Refinery" parent="." instance=ExtResource("5_me1lq")]
 position = Vector2(-49, -16)
+
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = -94.0
 offset_top = -138.0

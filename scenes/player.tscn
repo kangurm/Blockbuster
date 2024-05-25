@@ -70,4 +70,5 @@ shape = SubResource("RectangleShape2D_qhbnb")
 zoom = Vector2(1.6, 1.6)
 
 [node name="Hud" parent="." instance=ExtResource("9_ukv5w")]
+visible = false
 position = Vector2(-1, 0)
