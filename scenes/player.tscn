@@ -77,6 +77,7 @@ animation = &"idle"
 shape = SubResource("RectangleShape2D_qhbnb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [node name="Hud" parent="." instance=ExtResource("9_ukv5w")]
 

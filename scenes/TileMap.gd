@@ -4,7 +4,7 @@ signal tile_broken
 
 
 var wait = 0.1
-var reach = 15
+var reach = 40
 var current_tile_pos: Vector2i
 
 func break_block(event, tile_atlas_coord, tile_mouse_pos):

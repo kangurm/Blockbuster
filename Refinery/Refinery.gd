@@ -2,9 +2,9 @@ extends Node2D
 
 signal transfered
 const fuelValue = globals.fuel_value
-const furnaceTimer = [30, 180, 240, 300]
-const furnaceConsumption = [1, 2, 4, 8]
-const upgradeCost = [2,20,60,100]
+const furnaceTimer = [30, 180, 240, 300, 300]
+const furnaceConsumption = [1, 2, 4, 8, 8]
+const upgradeCost = [2,20,60,100, 100]
 var furnaceTier = 0
 var fuelConsumed = 0
 var fuelStored = 0
@@ -51,7 +51,7 @@ func transferBlocksToFurnace():
 
 func _on_countdown_tick():
 	if countdown_time > 0:
-		if fuelStored > 0.1:
+		if fuelStored > 0.1 and furnaceTier < 4:
 			fuelConsumed += furnaceConsumption[furnaceTier]
 			fuelStored -= furnaceConsumption[furnaceTier]
 		countdown_time -= 1
