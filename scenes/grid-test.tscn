@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bjj2rwg43xy74" path="res://tileset.tres" id="1_njt13"]
 [ext_resource type="PackedScene" uid="uid://ely0qhtbl0et" path="res://scenes/player.tscn" id="2_kc10y"]
 [ext_resource type="Script" path="res://scenes/TileMap.gd" id="2_x7qx0"]
-[ext_resource type="PackedScene" uid="uid://ba7hrjgje3yyl" path="res://Refinery/Refinery.tscn" id="5_me1lq"]
+[ext_resource type="PackedScene" uid="uid://ba7hrjgje3yyl" path="res://Refinery/Refinery.tscn" id="5_726mq"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_e5p4q")
@@ -28,3 +28,6 @@ theme_override_font_sizes/font_size = 11
 text = "change pickage using up/down keys"
 editable = false
 wrap_mode = 1
+
+[node name="Refinery" parent="." instance=ExtResource("5_726mq")]
+position = Vector2(-50, -13)
