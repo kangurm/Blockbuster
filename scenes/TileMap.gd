@@ -10,6 +10,7 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 	var coordX = tile_atlas_coord.x
 	var coordY = tile_atlas_coord.y
 	var damage = tier - coordY +1
+	
 	if tier >=coordY:
 		if coordX + damage < 5 && coordX > -1:
 			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+damage, coordY))
@@ -83,11 +84,11 @@ func mine(event) :
 
 func _input (event):
 	
-	if Input.is_action_just_pressed("mv_up"):
+	if Input.is_action_just_pressed("pressI"):
 		if tier < 4:
 			tier += 1
 			print('breaker tier:', tier)
-	if Input.is_action_just_pressed("mv_down"):
+	if Input.is_action_just_pressed("pressJ"):
 		if tier >0:
 			tier -=1
 			print('breaker tier:', tier)

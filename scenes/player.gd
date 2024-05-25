@@ -26,6 +26,7 @@ func _physics_process(delta):
 		else:
 			SPEED = 300
 			JUMP_FORCE = -300
+			sayan=false
 
 	# Add the gravity (y)
 	if not is_on_floor():
