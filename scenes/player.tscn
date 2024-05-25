@@ -1,15 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://ely0qhtbl0et"]
+[gd_scene load_steps=11 format=3 uid="uid://ely0qhtbl0et"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_wlt4k"]
 [ext_resource type="Texture2D" uid="uid://gudos3wicbeq" path="res://Player/0 standby.png" id="2_dgsmm"]
 [ext_resource type="Texture2D" uid="uid://fkdgl13p6fok" path="res://Player/0 standing.png" id="2_o3ieu"]
+[ext_resource type="Texture2D" uid="uid://bsei28o40roie" path="res://Player/2 jump.png" id="3_4curb"]
 [ext_resource type="Texture2D" uid="uid://u3ujsvjn00ud" path="res://Player/1 move.png" id="3_pysev"]
+[ext_resource type="Texture2D" uid="uid://5o54ww34v6uq" path="res://Player/1 jump.png" id="4_5hdac"]
 [ext_resource type="Texture2D" uid="uid://cvt8tyg1ewkbk" path="res://Player/2 move.png" id="4_ib4uu"]
 [ext_resource type="Texture2D" uid="uid://vlemnnrhgvft" path="res://Player/3 move.png" id="5_6o527"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcl07"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("2_o3ieu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4curb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5hdac")
+}, {
+"duration": 999.0,
+"texture": ExtResource("4_5hdac")
+}],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
@@ -45,9 +59,7 @@ script = ExtResource("1_wlt4k")
 position = Vector2(0, -25)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bcl07")
-animation = &"move"
-frame = 3
-frame_progress = 0.700932
+animation = &"jump"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)
