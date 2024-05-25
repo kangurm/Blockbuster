@@ -92,5 +92,5 @@ func _input (event):
 			var tile_mouse_pos = local_to_map(mouse_position)
 			var source_id = 0
 			var atlas_coord = Vector2i(1,0)
+			
 			set_cell(0,tile_mouse_pos, source_id, atlas_coord)
-

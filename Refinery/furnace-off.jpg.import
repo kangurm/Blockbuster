@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3vk16y8ww2b1"
-path="res://.godot/imported/0 standby.png-12c4d930e3a4a883ad085f9954683458.ctex"
+uid="uid://c24vi22me48ls"
+path="res://.godot/imported/furnace-off.jpg-da6ccc6b1723fb063def05b2db442ffa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://0 standby.png"
-dest_files=["res://.godot/imported/0 standby.png-12c4d930e3a4a883ad085f9954683458.ctex"]
+source_file="res://Refinery/furnace-off.jpg"
+dest_files=["res://.godot/imported/furnace-off.jpg-da6ccc6b1723fb063def05b2db442ffa.ctex"]
 
 [params]
 
