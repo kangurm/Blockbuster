@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ely0qhtbl0et"]
+[gd_scene load_steps=13 format=3 uid="uid://ely0qhtbl0et"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_wlt4k"]
 [ext_resource type="Texture2D" uid="uid://gudos3wicbeq" path="res://Player/0 standby.png" id="2_dgsmm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cvt8tyg1ewkbk" path="res://Player/2 move.png" id="4_ib4uu"]
 [ext_resource type="Texture2D" uid="uid://vlemnnrhgvft" path="res://Player/3 move.png" id="5_6o527"]
 [ext_resource type="PackedScene" uid="uid://chqcgd8hvxin2" path="res://Player/HUD/HUD.tscn" id="9_ukv5w"]
+[ext_resource type="Texture2D" uid="uid://die063jcdhcy4" path="res://background.png" id="10_wdgt8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcl07"]
 animations = [{
@@ -66,6 +67,13 @@ size = Vector2(15.875, 40)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_wlt4k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -361.0
+offset_top = -207.0
+offset_right = 359.0
+offset_bottom = 200.0
+texture = ExtResource("10_wdgt8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -19)
