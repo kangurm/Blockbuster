@@ -1,7 +1,6 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://db1ab1ibfd118"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://db1ab1ibfd118"]
 
 [ext_resource type="Texture2D" uid="uid://hto6uj24uqno" path="res://16pxTerrainTile.png" id="1_xe622"]
-[ext_resource type="PackedScene" uid="uid://ely0qhtbl0et" path="res://scenes/player.tscn" id="2_clf4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwa8p"]
 texture = ExtResource("1_xe622")
@@ -443,11 +442,6 @@ separation = Vector2i(1, 1)
 13:7/0/physics_layer_0/angular_velocity = 0.0
 13:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tysv0"]
-resource_name = "player"
-scenes/1/scene = ExtResource("2_clf4f")
-
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dwa8p")
-sources/1 = SubResource("TileSetScenesCollectionSource_tysv0")
