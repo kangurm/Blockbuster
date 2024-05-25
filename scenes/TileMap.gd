@@ -10,7 +10,7 @@ var block_inv = {
 	"oil_shale": 0,
 }
 
-var tier = 4
+var tier = 2
 var reach = 15
 var current_tile_pos: Vector2i
 
