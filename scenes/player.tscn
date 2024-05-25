@@ -45,9 +45,7 @@ script = ExtResource("1_wlt4k")
 position = Vector2(0, -25)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bcl07")
-animation = &"move"
-frame = 3
-frame_progress = 0.700932
+animation = &"jump"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)
