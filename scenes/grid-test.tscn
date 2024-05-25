@@ -9,6 +9,9 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_e5p4q")
 
+[node name="player" parent="." instance=ExtResource("2_kc10y")]
+position = Vector2(2, -16)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_njt13")
 format = 2
@@ -25,9 +28,3 @@ theme_override_font_sizes/font_size = 11
 text = "change pickage using up/down keys"
 editable = false
 wrap_mode = 1
-
-[node name="Refinery" parent="." instance=ExtResource("5_me1lq")]
-position = Vector2(-49, -16)
-
-[node name="player" parent="." instance=ExtResource("2_kc10y")]
-position = Vector2(24, 31)
