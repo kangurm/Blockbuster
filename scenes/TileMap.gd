@@ -3,6 +3,7 @@ extends TileMap
 signal tile_broken
 
 var tier = 0
+var wait = 0.1
 var reach = 15
 var current_tile_pos: Vector2i
 
@@ -41,7 +42,7 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 
 
 func mine(event) :
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(wait).timeout
 	var mouse_position = get_global_mouse_position()
 	var screen_size = get_viewport_rect().size
 	var center = Vector2(screen_size.x/2, screen_size.y/2)
@@ -87,10 +88,12 @@ func _input (event):
 	if Input.is_action_just_pressed("pressI"):
 		if tier < 4:
 			tier += 1
+			wait += 0.1
 			print('breaker tier:', tier)
 	if Input.is_action_just_pressed("pressJ"):
 		if tier >0:
 			tier -=1
+			wait -+ 0.1
 			print('breaker tier:', tier)
 	if Input.is_action_just_pressed("mb_left"):
 		while true:

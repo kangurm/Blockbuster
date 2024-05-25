@@ -9,19 +9,19 @@ script = ExtResource("1_0oipl")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-clip_contents = true
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -1.0
+offset_right = -8.0
+offset_bottom = -1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/Control"]
-custom_minimum_size = Vector2(1000, 100)
-layout_direction = 2
-layout_mode = 1
-offset_right = 1000.0
-offset_bottom = 100.0
+layout_mode = 0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 58.0
+offset_bottom = 45.0
+scale = Vector2(1, 0.990817)
 metadata/_edit_use_anchors_ = true
