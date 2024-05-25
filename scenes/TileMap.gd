@@ -61,7 +61,7 @@ func mine(event):
 	var screen_size = get_viewport_rect().size
 	var center = Vector2(screen_size.x/2, screen_size.y/2)
 	var mouse_pos = get_viewport().get_mouse_position()
-	var rel_position = mouse_pos-center
+	var rel_position = mouse_pos - center
 	var distance = local_to_map(rel_position)
 	var tile_mouse_pos = local_to_map(mouse_position)
 	var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
@@ -102,6 +102,8 @@ func mine(event):
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
 
+var dont_place = [Vector2i(1, -5), Vector2i(1, -4), Vector2i(1, -3), Vector2i(1, -2), Vector2i(1, -1), Vector2i(0, -5), Vector2i(0, -4), Vector2i(0, -3), Vector2i(0, -2), Vector2i(0, 0), Vector2i(-1, -5), Vector2i(-1, -4), Vector2i(-1, -3), Vector2i(-1, -2), Vector2i(-1, 0)]
+
 func _input (event):
 	
 	if Input.is_action_just_pressed("pressI"):
@@ -123,11 +125,22 @@ func _input (event):
 
 	# place blocks
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-			var mouse_position = get_global_mouse_position()
-			var tile_mouse_pos = local_to_map(mouse_position)
-			var source_id = 1
-			var atlas_coord = Vector2i(0,0)
-			if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) :
-				set_cell(0,tile_mouse_pos, source_id, atlas_coord)
-				print(playerPos)
-				print(mouse_position)
+		var mouse_position = get_global_mouse_position()
+		var tile_mouse_pos = local_to_map(mouse_position)
+		var source_id = 1
+		var atlas_coord = Vector2i(0,0)
+		
+		var screen_size = get_viewport_rect().size
+		var center = Vector2(screen_size.x/2, screen_size.y/2)
+		var mouse_pos = get_viewport().get_mouse_position()
+		var rel_position = mouse_pos - center
+		var distance = local_to_map(rel_position)
+		
+		playerPos = get_node('../../Node2D/player').global_position
+		var placeBool = dont_place.find(distance)
+		
+		if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1 :
+			set_cell(0,tile_mouse_pos, source_id, atlas_coord)
+			print(distance)
+			#print(mouse_position)
+			print('')
