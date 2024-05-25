@@ -2,7 +2,7 @@ extends Node2D
 
 signal transfered
 const fuelValue = globals.fuel_value
-const furnaceTimer = [30, 180, 240, 300, 300]
+const furnaceTimer = [30, 60, 90, 300, 300]
 const furnaceConsumption = [1, 2, 4, 8, 8]
 const upgradeCost = [2,20,60,100, 100]
 var furnaceTier = 0
@@ -62,8 +62,8 @@ func _on_countdown_tick():
 		
 		$ProgressBar.value = furnaceTimer[furnaceTier] - countdown_time
 		if countdown_time == 0:
+			get_tree().change_scene_to_file("res://lose.tscn")
 			$OneSecondTimer.stop()
-
 func clearPlayerInventroy():
 	print("Before:", globals.block_inv)
 	for key in globals.block_inv:
