@@ -4,7 +4,7 @@ signal tile_broken
 
 
 var wait = 0.1
-var reach = 15
+var reach = 40
 var current_tile_pos: Vector2i
 
 func break_block(event, tile_atlas_coord, tile_mouse_pos):
@@ -65,7 +65,7 @@ func mine(event):
 	var distance = local_to_map(rel_position)
 	var tile_mouse_pos = local_to_map(mouse_position)
 	var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
-	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach:
+	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && globals.toolTier > 0:
 		throw_object(event)
 	await get_tree().create_timer(wait).timeout
 	
