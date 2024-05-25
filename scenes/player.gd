@@ -12,7 +12,20 @@ const ANIMATION_MOVE = "move"
 const ANIMATION_JUMP = "jump"
 var LAST_DIRECTION = 0
 
+var sayan = false
+
+
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed('sayan'):
+		print('sayan')
+		if !sayan:
+			SPEED = 750
+			JUMP_FORCE = -750
+			sayan=true
+		else:
+			SPEED = 300
+			JUMP_FORCE = -300
 
 	# Add the gravity (y)
 	if not is_on_floor():

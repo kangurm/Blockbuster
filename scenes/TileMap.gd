@@ -10,8 +10,6 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 	var coordX = tile_atlas_coord.x
 	var coordY = tile_atlas_coord.y
 	var damage = tier - coordY +1
-	print('tier:', tier)
-	print('y coord:',coordY)
 	if tier >=coordY:
 		if coordX + damage < 5 && coordX > -1:
 			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+damage, coordY))
@@ -27,6 +25,7 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 			if coordY == 0:
 				globals.block_inv['oil_shale'] +=1
 			set_cell(0, tile_mouse_pos, -1)
+			emit_signal('tile_broken')
 
 
 
@@ -72,7 +71,6 @@ func mine(event) :
 				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, coord) != 0 :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
-	print(globals.block_inv)
 
 func _input (event):
 	
