@@ -17,11 +17,12 @@ var current_tile_pos: Vector2i
 func break_block(event, tile_atlas_coord, tile_mouse_pos):
 	var coordX = tile_atlas_coord.x
 	var coordY = tile_atlas_coord.y
+	var damage = tier - coordY +1
 	print('tier:', tier)
 	print('y coord:',coordY)
 	if tier >=coordY:
-		if coordX < 4 && coordX > -1:
-			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+1, coordY))
+		if coordX + damage < 5 && coordX > -1:
+			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+damage, coordY))
 		else:
 			if coordY == 4:
 				block_inv['dirt'] += 1
