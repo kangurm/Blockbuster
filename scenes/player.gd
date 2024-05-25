@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-
+var score = 0
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -42,7 +42,11 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 	move_and_slide()
 	
+	
 
+func _on_tile_broken(N):
+	score += N
+	print("Score: ", score)
 	
 	
 

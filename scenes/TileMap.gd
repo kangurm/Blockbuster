@@ -1,5 +1,6 @@
 extends TileMap
 
+signal tile_broken
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,8 @@ func _input (event):
 		#print(tile_info)
 		print(tile_atlas_coord)
 		set_cell(0, tile_mouse_pos, -1)
+		if tile_atlas_coord != Vector2i(-1, -1):
+			emit_signal("tile_broken", 10)
 		
 		
 		
@@ -31,6 +34,5 @@ func _input (event):
 			
 			var source_id = 0
 			var atlas_coord = Vector2i(1,0)
+			
 			set_cell(0,tile_mouse_pos, source_id, atlas_coord)
-		
-
