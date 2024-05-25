@@ -1,17 +1,16 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@onready var prefix = $CanvasLayer/Control/HFlowContainer
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-#func _input(event):
-	#if Input.is_action_pressed('enter'):
-		#var tilemap = get_node('../../TileMap')
-		#
-		#print('enter', tilemap.block_inv)
+#func _update_inventory_UI():
+	#prefix.get_node("Block1_Count/Label").text = str(block_inventory["dirt"])
+	#for i in block_inventory:
+		#for j in block_inventory[i]:
+			#if j >= 0 && prefix.has_node(i):
+				#var box_container = BoxContainer.new()
+				#box_container.set_name(i)
+				#prefix.add_child(box_container)
+				#print("added: ", i)
+	#

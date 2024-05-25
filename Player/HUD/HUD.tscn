@@ -1,17 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://chqcgd8hvxin2"]
+[gd_scene load_steps=2 format=3 uid="uid://chqcgd8hvxin2"]
 
 [ext_resource type="Script" path="res://Player/HUD/HUD.gd" id="1_0oipl"]
-[ext_resource type="Texture2D" uid="uid://u7pniw1ve0nk" path="res://placeholder.png" id="1_fn0lx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1fdct"]
-resource_name = "TextureAtlas"
-atlas = ExtResource("1_fn0lx")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_epeah"]
-resource_name = "block2"
-atlas = ExtResource("1_fn0lx")
-region = Rect2(0, 16, 16, 16)
 
 [node name="HUD" type="Node2D"]
 position = Vector2(0, -1)
@@ -36,13 +25,3 @@ offset_right = 58.0
 offset_bottom = 45.0
 scale = Vector2(1, 0.990817)
 metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer"]
-position = Vector2(46, 48)
-scale = Vector2(5.96381, 5.96381)
-texture = SubResource("AtlasTexture_1fdct")
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/HFlowContainer"]
-position = Vector2(46, 48)
-scale = Vector2(5.96381, 5.96381)
-texture = SubResource("AtlasTexture_epeah")
