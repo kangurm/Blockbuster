@@ -12,24 +12,35 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_bcl07"]
 animations = [{
 "frames": [{
-"duration": 0.1,
+"duration": 1.0,
 "texture": ExtResource("2_o3ieu")
 }, {
 "duration": 1.0,
+"texture": ExtResource("2_dgsmm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("2_o3ieu")
+}, {
+"duration": 0.8,
 "texture": ExtResource("3_4curb")
 }, {
-"duration": 1.0,
+"duration": 1.4,
 "texture": ExtResource("4_5hdac")
 }, {
-"duration": 999.0,
-"texture": ExtResource("4_5hdac")
+"duration": 99.0,
+"texture": ExtResource("3_4curb")
 }],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.1,
+"duration": 0.5,
 "texture": ExtResource("2_o3ieu")
 }, {
 "duration": 1.0,
@@ -59,7 +70,7 @@ script = ExtResource("1_wlt4k")
 position = Vector2(0, -25)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bcl07")
-animation = &"jump"
+animation = &"idle"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -25)
