@@ -24,8 +24,8 @@ func _input (event):
 			print("Fuel Stored:", fuelStored)
 			emit_signal("transfered", "all")
 			if fuelConsumed > upgradeCost[furnaceTier] and furnaceTier<4:
-				globals.toolTier+=1
 				furnaceTier+=1
+				globals.toolTier = furnaceTier
 				print(globals.toolTier)
 			
 			
