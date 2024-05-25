@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://c24vi22me48ls" path="res://Refinery/furnace-off.jpg" id="1_i3usj"]
 [ext_resource type="Script" path="res://Refinery/Refinery.gd" id="1_yj67s"]
-[ext_resource type="Script" path="res://Refinery/Timer.gd" id="2_7ajlm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqja"]
 size = Vector2(809.524, 857.143)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m064d"]
+font_size = 500
 
 [node name="Refinery" type="Node2D"]
 scale = Vector2(0.021, 0.021)
@@ -21,5 +23,23 @@ visible = false
 shape = SubResource("RectangleShape2D_dmqja")
 disabled = true
 
-[node name="Timer" type="Timer" parent="."]
-script = ExtResource("2_7ajlm")
+[node name="Label" type="Label" parent="."]
+offset_left = -333.333
+offset_top = -666.667
+offset_right = 333.667
+offset_bottom = -428.667
+label_settings = SubResource("LabelSettings_m064d")
+horizontal_alignment = 1
+
+[node name="OneSecondTimer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -1380.95
+offset_top = -857.143
+offset_right = 1334.05
+offset_bottom = -428.143
+max_value = 60.0
+step = 1.0
+show_percentage = false
+
+[connection signal="timeout" from="OneSecondTimer" to="." method="_on_countdown_tick"]

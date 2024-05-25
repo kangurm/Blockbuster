@@ -77,6 +77,9 @@ func mine(event) :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord).y
 					break_block(event, tile_atlas_coord, coord)
 	print(block_inv)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
 
 func _input (event):
 	if Input.is_action_just_pressed("mb_left"):
