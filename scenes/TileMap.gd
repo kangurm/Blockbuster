@@ -38,12 +38,12 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 			set_cell(0, tile_mouse_pos, -1)
 			emit_signal('tile_broken', block_type)
 
-
+@onready var playerPos =  get_node('../../Node2D/player').global_position
 func throw_object(event):
 	var sprite = Sprite2D.new()
 	sprite.texture = load('res://projectile/doll.png')
+	playerPos =  get_node('../../Node2D/player').global_position
 	sprite.scale = Vector2(0.02,0.02)
-	var playerPos =  get_node('../../Node2D/player').global_position
 	sprite.position = playerPos
 	sprite.look_at(get_global_mouse_position())
 	sprite.rotate(-30)
@@ -127,5 +127,7 @@ func _input (event):
 			var tile_mouse_pos = local_to_map(mouse_position)
 			var source_id = 1
 			var atlas_coord = Vector2i(0,0)
-			
-			set_cell(0,tile_mouse_pos, source_id, atlas_coord)
+			if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) :
+				set_cell(0,tile_mouse_pos, source_id, atlas_coord)
+				print(playerPos)
+				print(mouse_position)

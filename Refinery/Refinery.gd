@@ -44,13 +44,13 @@ func transferBlocksToFurnace():
 
 func _on_countdown_tick():
 	if countdown_time > 0:
-		print(countdown_time)
+		#print(countdown_time)
 		if countdown_time > furnaceTimer[furnaceTier]:
 			fuelConsumed += furnaceConsumption[furnaceTier]
 		countdown_time -= 1
 		$Label.text = str(countdown_time)
 		$ProgressBar.value = furnaceTimer[furnaceTier] - countdown_time
-		print($ProgressBar.value)
+		#print($ProgressBar.value)
 		if countdown_time == 0:
 			$OneSecondTimer.stop()
 
