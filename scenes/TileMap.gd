@@ -17,22 +17,23 @@ var current_tile_pos: Vector2i
 func break_block(event, tile_atlas_coord, tile_mouse_pos):
 	var coordX = tile_atlas_coord.x
 	var coordY = tile_atlas_coord.y
-	
-	if coordX < 4 && coordX > -1:
-		set_cell(0, tile_mouse_pos,1, Vector2i(coordX+1, coordY))
-	else:
-			
-		if coordY == 4:
-			block_inv['dirt'] += 1
-		if coordY == 3:
-			block_inv['stone'] += 1
-		if coordY == 2 :
-			block_inv['granite'] +=1
-		if coordY == 1:
-			block_inv['obsidian'] +=1
-		if coordY == 0:
-			block_inv['oil_shale'] +=1
-		set_cell(0, tile_mouse_pos, -1)
+	print('tier:', tier)
+	print('y coord:',coordY)
+	if tier >=coordY:
+		if coordX < 4 && coordX > -1:
+			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+1, coordY))
+		else:
+			if coordY == 4:
+				block_inv['dirt'] += 1
+			if coordY == 3:
+				block_inv['stone'] += 1
+			if coordY == 2 :
+				block_inv['granite'] +=1
+			if coordY == 1:
+				block_inv['obsidian'] +=1
+			if coordY == 0:
+				block_inv['oil_shale'] +=1
+			set_cell(0, tile_mouse_pos, -1)
 
 
 
@@ -85,9 +86,11 @@ func _input (event):
 	if Input.is_action_just_pressed("mv_up"):
 		if tier < 4:
 			tier += 1
+			print('breaker tier:', tier)
 	if Input.is_action_just_pressed("mv_down"):
 		if tier >0:
 			tier -=1
+			print('breaker tier:', tier)
 	if Input.is_action_just_pressed("mb_left"):
 		while true:
 			if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):

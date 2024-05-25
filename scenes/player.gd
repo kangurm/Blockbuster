@@ -22,9 +22,9 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		$AnimatedSprite2D.animation = ANIMATION_JUMP
-		print(velocity.y)
+		#print(velocity.y)
 		velocity.y = JUMP_DIRECTION
-		print(velocity.y)
+		#print(velocity.y)
 		$AnimatedSprite2D.play()
 
 	# Get the input direction and handle the movement/deceleration.
