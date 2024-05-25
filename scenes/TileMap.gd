@@ -17,7 +17,14 @@ func _input (event):
 		#var tile_info = get_cell_source_id(0, tile_mouse_pos) not needed if only 1 atlas
 		var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
 		#print(tile_info)
-		print(tile_atlas_coord)
+		
+		
+		
+		
+		
+		
+		
+		
 		set_cell(0, tile_mouse_pos, -1)
 		
 		
