@@ -61,6 +61,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func _on_tile_broken(N):
-	score += N
+func _on_tile_broken(key):
+	score += 10
 	print("Score: ", score)

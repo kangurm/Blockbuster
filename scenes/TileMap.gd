@@ -15,18 +15,27 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 		if coordX + damage < 5 && coordX > -1:
 			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+damage, coordY))
 		else:
+			var block_type
+			# Air block
+			if coordY == -1:
+				return
 			if coordY == 4:
 				globals.block_inv['dirt'] += 1
+				block_type = 'dirt'
 			if coordY == 3:
 				globals.block_inv['stone'] += 1
+				block_type = 'stone'
 			if coordY == 2 :
 				globals.block_inv['granite'] +=1
+				block_type = 'granite'
 			if coordY == 1:
 				globals.block_inv['obsidian'] +=1
+				block_type = 'obsidian'
 			if coordY == 0:
 				globals.block_inv['oil_shale'] +=1
+				block_type = 'oil_shale'
 			set_cell(0, tile_mouse_pos, -1)
-			emit_signal('tile_broken')
+			emit_signal('tile_broken', block_type)
 
 
 
