@@ -30,14 +30,15 @@ func _input (event):
 				globals.toolTier = furnaceTier
 				print(globals.toolTier)
 			
-				
-	
-	
-	
+			
 	#
 	#if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		#$OneSecondTimer.start()
 		##print(globals.block_inv)
+
+func update_labels():
+	$TextureRect/HFlowContainer/FuelConsumed.text = str(fuelConsumed)
+	$TextureRect/HFlowContainer/UpgradeCost.text = str(upgradeCost[furnaceTier])
 
 func transferBlocksToFurnace():
 	for block in globals.block_inv:
@@ -67,6 +68,7 @@ func _on_countdown_tick():
 		if countdown_time == 0:
 			get_tree().change_scene_to_file("res://lose.tscn")
 			$OneSecondTimer.stop()
+		update_labels()
 func clearPlayerInventroy():
 	print("Before:", globals.block_inv)
 	for key in globals.block_inv:
