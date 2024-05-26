@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ely0qhtbl0et"]
+[gd_scene load_steps=14 format=3 uid="uid://ely0qhtbl0et"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_wlt4k"]
 [ext_resource type="Texture2D" uid="uid://gudos3wicbeq" path="res://Player/0 standby.png" id="2_dgsmm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://5o54ww34v6uq" path="res://Player/1 jump.png" id="4_5hdac"]
 [ext_resource type="Texture2D" uid="uid://cvt8tyg1ewkbk" path="res://Player/2 move.png" id="4_ib4uu"]
 [ext_resource type="Texture2D" uid="uid://vlemnnrhgvft" path="res://Player/3 move.png" id="5_6o527"]
+[ext_resource type="Texture2D" uid="uid://cplo1yvbacc8m" path="res://Player/projectile.png" id="9_t0id1"]
 [ext_resource type="PackedScene" uid="uid://chqcgd8hvxin2" path="res://Player/HUD/HUD.tscn" id="9_ukv5w"]
 [ext_resource type="Texture2D" uid="uid://cdtfn0ppdrnct" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="11_8nve3"]
 
@@ -60,6 +61,14 @@ animations = [{
 "loop": true,
 "name": &"move",
 "speed": 13.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("9_t0id1")
+}],
+"loop": false,
+"name": &"throw",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhbnb"]
@@ -71,7 +80,7 @@ script = ExtResource("1_wlt4k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0394978, 0.04)
 sprite_frames = SubResource("SpriteFrames_bcl07")
-animation = &"idle"
+animation = &"throw"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qhbnb")
@@ -89,3 +98,8 @@ shadow_filter = 2
 shadow_filter_smooth = 5.0
 texture = ExtResource("11_8nve3")
 texture_scale = 1.6
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.102
+one_shot = true
+autostart = true

@@ -60,10 +60,14 @@ func _update_inventory_UI(key):
 		for child in prefix_inv.get_children():
 			child.queue_free()
 		return
-	print(key)
+	#print(key)
 	if (globals.block_inv[key] > 0 && prefix_inv.has_node(key)) :
 		UI_update_item_count(key)
 		return
+	if(globals.block_inv[key] == 0 && prefix_inv.has_node(key)):
+		prefix_inv.get_node(key).queue_free()
+		return
+		
 	UI_add_inventory_container(key)
 
 func _update_onscreen_progressbar(countdown):

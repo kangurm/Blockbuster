@@ -100,5 +100,7 @@ theme_override_font_sizes/font_size = 15
 text = "50"
 max_lines_visible = 1
 text_direction = 1
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -16.378
 
 [connection signal="timeout" from="OneSecondTimer" to="." method="_on_countdown_tick"]

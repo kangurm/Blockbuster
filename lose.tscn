@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://po0h22w2rqrc"]
+[gd_scene load_steps=3 format=3 uid="uid://po0h22w2rqrc"]
 
 [ext_resource type="Script" path="res://lose.gd" id="1_psvyr"]
+[ext_resource type="AudioStream" uid="uid://cgweq4au6uhnp" path="res://Sounds/LoseSFX.wav" id="2_1c0sm"]
 
 [node name="lose" type="Control"]
 layout_mode = 3
@@ -36,6 +37,10 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1c0sm")
+volume_db = -18.016
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayAgain" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
