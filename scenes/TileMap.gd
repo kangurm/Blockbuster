@@ -74,7 +74,6 @@ func throw_object(event):
 
 
 func mine(event):
-	
 	var mouse_position = get_global_mouse_position()
 	var screen_size = get_viewport_rect().size
 	var center = Vector2(screen_size.x/2, screen_size.y/2)
@@ -122,6 +121,8 @@ func mine(event):
 
 var dont_place = [  Vector2i(1, -2), Vector2i(1, -1), Vector2i(1, 0), Vector2i(0, -2), Vector2i(0, -1), Vector2i(0, 0),  Vector2i(-1, -2), Vector2i(-1, -1), Vector2i(-1, 0)]
 
+var currently_breaking = false
+
 func _input (event):
 	
 	if Input.is_action_just_pressed("pressI"):
@@ -134,11 +135,15 @@ func _input (event):
 			globals.toolTier -=1
 			globals.wait -= 0.1
 			print('breaker globals.toolTier:', globals.toolTier)
-	if Input.is_action_just_pressed("mb_left"):
+	if Input.is_action_just_pressed("mb_left") && currently_breaking == false:
+		currently_breaking = true
+		print('mining')
 		while true:
 			if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 				await mine(event)
 			else:
+				currently_breaking = false
+				print('stop')
 				break
 
 	# place blocks
