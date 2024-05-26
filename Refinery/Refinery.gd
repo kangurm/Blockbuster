@@ -2,9 +2,9 @@ extends Node2D
 
 signal transfered
 const fuelValue = globals.fuel_value
-const furnaceTimer = [30, 60, 90, 300, 300]
+const furnaceTimer = [30, 40, 55, 90, 140]
 const furnaceConsumption = [1, 2, 4, 8, 8]
-const upgradeCost = [2,20,60,100, 100]
+const upgradeCost = [15, 90, 150, 220, 300]
 var furnaceTier = 0
 var fuelConsumed = 0
 var fuelStored = 0
@@ -28,8 +28,8 @@ func _input (event):
 			if globals.catReached == true:
 				get_tree().change_scene_to_file("res://win.tscn")
 			transferBlocksToFurnace()
-			print("Fuel Consumed:", fuelConsumed)
-			print("Fuel Stored:", fuelStored)
+			#print("Fuel Consumed:", fuelConsumed)
+			#print("Fuel Stored:", fuelStored)
 			emit_signal("transfered", "all")
 			if fuelConsumed >= upgradeCost[furnaceTier] and furnaceTier<4:
 				furnaceTier+=1
@@ -46,7 +46,7 @@ func _input (event):
 				
 				audio_player.stream = upgrade_tool
 				audio_player.play()
-				print(globals.toolTier)
+				#print(globals.toolTier)
 			
 			
 	#
@@ -90,7 +90,7 @@ func transferBlocksToFurnace():
 	
 
 func _on_countdown_tick():
-	print("time ", countdown_time)
+	#print("time ", countdown_time)
 	if countdown_time > 0:
 		if fuelStored > 0.1 and furnaceTier < 4:
 			fuelConsumed += furnaceConsumption[furnaceTier]
@@ -120,8 +120,8 @@ func _on_countdown_tick():
 		audio_player.stream = warn3
 		audio_player.play()
 		
-func clearPlayerInventroy():
-	print("Before:", globals.block_inv)
-	for key in globals.block_inv:
-		# Insert the key and value into a text string
-		print("index: %s, value: %d" % [key, globals.block_inv[key]])
+#func clearPlayerInventroy():
+	##print("Before:", globals.block_inv)
+	##for key in globals.block_inv:
+		## Insert the key and value into a text string
+		##print("index: %s, value: %d" % [key, globals.block_inv[key]])

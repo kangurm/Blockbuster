@@ -80,7 +80,7 @@ func all_values_are_zero(dict: Dictionary) -> bool:
 	return true
 
 func _physics_process(delta):
-	print(globals.zoom)
+	#print(globals.zoom)
 	if $Camera2D.zoom.x != globals.zoom:
 		$Camera2D.zoom.x = globals.zoom
 	if $Camera2D.zoom.y != globals.zoom:

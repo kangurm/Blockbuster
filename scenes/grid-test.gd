@@ -9,6 +9,9 @@ var score = 0
 func _ready():
 	$AudioStreamPlayer.play()
 	#reset globals
+	globals.wait = float(0.1)
+	globals.reach = 20
+	globals.zoom = 4
 	globals.refinery_inv = {
 	"stone": 0,
 	"granite": 0,
