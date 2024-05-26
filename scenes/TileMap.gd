@@ -170,4 +170,5 @@ func _input (event):
 			if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1:
 				globals.block_inv[blockUsed] -=1
 				emit_signal('block_placed', blockUsed)
+				emit_signal('object_thrown', distance.x)
 				set_cell(0,tile_mouse_pos, source_id, atlas_coord)
