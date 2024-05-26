@@ -98,3 +98,8 @@ shadow_filter = 2
 shadow_filter_smooth = 5.0
 texture = ExtResource("11_8nve3")
 texture_scale = 1.6
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.102
+one_shot = true
+autostart = true
