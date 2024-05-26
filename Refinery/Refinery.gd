@@ -2,9 +2,9 @@ extends Node2D
 
 signal transfered
 const fuelValue = globals.fuel_value
-const furnaceTimer = [30, 60, 90, 300, 300]
+const furnaceTimer = [30, 40, 55, 90, 140]
 const furnaceConsumption = [1, 2, 4, 8, 8]
-const upgradeCost = [2,20,60,100, 100]
+const upgradeCost = [15, 90, 150, 220, 300]
 var furnaceTier = 0
 var fuelConsumed = 0
 var fuelStored = 0
