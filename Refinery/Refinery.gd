@@ -10,6 +10,8 @@ var fuelConsumed = 0
 var fuelStored = 0
 var countdown_time = furnaceTimer[furnaceTier]
 
+signal progressbar
+
 
 func _input (event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -59,6 +61,7 @@ func _on_countdown_tick():
 			$Label.text = str(furnaceTimer[furnaceTier])
 		else:
 			$Label.text = str(countdown_time)
+			emit_signal("progressbar", countdown_time)
 		
 		$ProgressBar.value = furnaceTimer[furnaceTier] - countdown_time
 		if countdown_time == 0:
