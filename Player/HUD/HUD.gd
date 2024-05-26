@@ -65,6 +65,6 @@ func _update_inventory_UI(key):
 		UI_update_item_count(key)
 		return
 	UI_add_inventory_container(key)
-	#for key in globals.block_inv.keys():
-		#if globals.block_inv[key] >= 0 and not prefix_inv.has_node(key):
-			#UI_add_inventory_container(key)
+
+func _update_onscreen_progressbar(countdown):
+	$CanvasLayer/Control/ProgressBar.value = countdown;
