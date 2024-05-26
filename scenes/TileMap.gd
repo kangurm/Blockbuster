@@ -148,7 +148,7 @@ func _input (event):
 		var distance = local_to_map(rel_position)
 		
 		var blockUsed
-		print(globals.block_inv)
+		#print(globals.block_inv)
 		if globals.block_inv['uranium'] > 0:
 			atlas_coord = Vector2i(0,4)
 			blockUsed = 'uranium'
@@ -166,9 +166,7 @@ func _input (event):
 			blockUsed = 'stone'
 		playerPos = get_node('../../Node2D/player').global_position
 		var placeBool = dont_place.find(distance)
-		if atlas_coord == Vector2i(-1,-1) :
-			print('not enough blocks')
-		else:
+		if atlas_coord != Vector2i(-1,-1) :
 			if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1:
 				globals.block_inv[blockUsed] -=1
 				emit_signal('block_placed', blockUsed)
