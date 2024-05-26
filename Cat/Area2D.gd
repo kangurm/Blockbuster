@@ -10,6 +10,7 @@ func _process(delta):
 	# Check if the player is within the bounds of the Area2D
 	if is_player_inside():
 		globals.catReached = true
+		self.queue_free()
 
 
 # Check if the player is inside the Cat Area2D
