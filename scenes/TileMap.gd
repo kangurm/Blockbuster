@@ -57,6 +57,7 @@ func throw_object(event):
 
 
 func mine(event):
+	
 	var mouse_position = get_global_mouse_position()
 	var screen_size = get_viewport_rect().size
 	var center = Vector2(screen_size.x/2, screen_size.y/2)
@@ -71,6 +72,7 @@ func mine(event):
 	
 	
 	if globals.toolTier == 0:
+		print("break tier 0")
 		if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, tile_mouse_pos) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, tile_mouse_pos) != 0 :
 			break_block(event, tile_atlas_coord, tile_mouse_pos)
 	if globals.toolTier == 1:
