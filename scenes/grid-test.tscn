@@ -90,7 +90,7 @@ color = Color(0.29219, 0.29219, 0.29219, 1)
 
 [node name="BlockBreak" type="AudioStreamPlayer" parent="TileMap"]
 stream = ExtResource("11_n70nb")
-volume_db = -6.05
+volume_db = 6.233
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_sxwsy")
