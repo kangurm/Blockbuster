@@ -1,6 +1,7 @@
 extends TileMap
 
 signal tile_broken
+signal object_thrown
 
 
 var wait = 0.1
@@ -40,13 +41,21 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 
 @onready var playerPos =  get_node('../../Node2D/player').global_position
 func throw_object(event):
+	emit_signal('object_thrown', event.x)
 	var sprite = Sprite2D.new()
-	sprite.texture = load('res://projectile/doll.png')
+	if globals.toolTier == 0:
+		sprite.texture = load('res://projectile/punch-pixelicious2.png')		
+	else:
+		sprite.texture = load('res://projectile/doll.png')
+		sprite.rotate(-30)
+	#var anime = get_node('../../Node2D/player/AnimatedSprite2D')
+	#anime.animation = 'idle'
+	#anime.flip_h = event.x < 0
 	playerPos =  get_node('../../Node2D/player').global_position
+	
 	sprite.scale = Vector2(0.02,0.02)
 	sprite.position = playerPos
 	sprite.look_at(get_global_mouse_position())
-	sprite.rotate(-30)
 	add_child(sprite)
 	
 	var tween = create_tween()
@@ -65,8 +74,8 @@ func mine(event):
 	var distance = local_to_map(rel_position)
 	var tile_mouse_pos = local_to_map(mouse_position)
 	var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
-	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && globals.toolTier > 0:
-		throw_object(event)
+	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach:
+		throw_object(distance)
 	await get_tree().create_timer(wait).timeout
 	
 	
@@ -141,6 +150,3 @@ func _input (event):
 		
 		if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1 :
 			set_cell(0,tile_mouse_pos, source_id, atlas_coord)
-			print(distance)
-			#print(mouse_position)
-			print('')

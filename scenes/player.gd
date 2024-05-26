@@ -14,6 +14,15 @@ var LAST_DIRECTION = 0
 
 var sayan = false
 
+var throw = false
+var mirror = 1
+
+func _thrown(x):
+	throw = true
+	if x < 0:
+		mirror = -1
+	else:
+		mirror = 1
 
 func _physics_process(delta):
 	
@@ -40,20 +49,28 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
 	if direction != 0:
 		LAST_DIRECTION = direction
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Animation
+		# Animation
 	if is_on_floor():
+		if throw && direction == 0:
+			direction = mirror
+			throw = false
+			LAST_DIRECTION = mirror
 		if direction != 0:
 			$AnimatedSprite2D.animation = ANIMATION_MOVE
 			$AnimatedSprite2D.flip_h = direction < 0
 		else:
 			$AnimatedSprite2D.stop()
 	else:
+		if throw && Input.get_axis("ui_left", "ui_right") == 0:
+			LAST_DIRECTION= mirror
+			throw = false
 		$AnimatedSprite2D.animation = ANIMATION_JUMP
 		$AnimatedSprite2D.flip_h = LAST_DIRECTION < 0
 

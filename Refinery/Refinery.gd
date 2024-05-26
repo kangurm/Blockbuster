@@ -28,7 +28,7 @@ func _input (event):
 				globals.toolTier = furnaceTier
 				print(globals.toolTier)
 			
-			
+				
 	
 	
 	

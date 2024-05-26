@@ -9,5 +9,6 @@ var score = 0
 func _ready():
 	tile_map.tile_broken.connect(player._on_tile_broken)
 	tile_map.tile_broken.connect(hud._update_inventory_UI)
+	tile_map.object_thrown.connect(player._thrown)
 	#refinery.transfered.connect(hud._update_inventory_UI)
 	
