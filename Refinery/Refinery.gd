@@ -19,18 +19,24 @@ signal progressbar
 
 func _input (event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		
-		
 		var sprite = get_node("StaticBody2D/Sprite2D")
 		var sprite_rect = sprite.get_rect()
 		var local_mouse_pos = sprite.to_local(get_global_mouse_position())
 		if sprite_rect.has_point(local_mouse_pos):
+			if globals.catReached == true:
+				get_tree().change_scene_to_file("res://win.tscn")
 			transferBlocksToFurnace()
 			print("Fuel Consumed:", fuelConsumed)
 			print("Fuel Stored:", fuelStored)
 			emit_signal("transfered", "all")
-			if fuelConsumed > upgradeCost[furnaceTier] and furnaceTier<4:
+			if fuelConsumed >= upgradeCost[furnaceTier] and furnaceTier<4:
 				furnaceTier+=1
+				update_icons()
+				var bar_suhe = $ProgressBar.max_value / $ProgressBar.value
+				$ProgressBar.max_value = furnaceTimer[furnaceTier]
+				$ProgressBar.value = $ProgressBar.max_value / bar_suhe
+				countdown_time = $ProgressBar.max_value - $ProgressBar.value
+				fuelConsumed = 0
 				globals.toolTier = furnaceTier
 				globals.wait += 0.1
 				globals.reach += 5
@@ -45,15 +51,34 @@ func _input (event):
 		##print(globals.block_inv)
 
 func update_labels():
-	$TextureRect/HFlowContainer/FuelConsumed.text = str(fuelConsumed)
-	$TextureRect/HFlowContainer/UpgradeCost.text = str(upgradeCost[furnaceTier])
+	if $HFlowContainer:
+		$HFlowContainer/FuelConsumed.text = str(fuelConsumed)
+		$HFlowContainer/UpgradeCost.text = str(upgradeCost[furnaceTier])
+		
+func update_icons():
+	if furnaceTier == 1:
+		var new_texture_path = "res://Tiers/tier2_icon.png"
+		var new_texture = load(new_texture_path)
+		$HFlowContainer/TextureRect.texture = new_texture
+	if furnaceTier == 2:
+		var new_texture_path = "res://Tiers/tier3_icon.png"
+		var new_texture = load(new_texture_path)
+		$HFlowContainer/TextureRect.texture = new_texture
+	if furnaceTier == 3:
+		var new_texture_path = "res://Tiers/tier4_icon.png"
+		var new_texture = load(new_texture_path)
+		$HFlowContainer/TextureRect.texture = new_texture
+	if furnaceTier == 4:
+		$HFlowContainer.queue_free()
+	#$HFlowContainer/TextureRect.texture = 
 
 func transferBlocksToFurnace():
 	for block in globals.block_inv:
 		#print(block, globals.block_inv[block])
 		#globals.refinery_inv[block] += globals.block_inv[block]
 		fuelStored += fuelValue[block] * globals.block_inv[block]
-		countdown_time += fuelValue[block] * globals.block_inv[block]		
+		countdown_time += fuelValue[block] * globals.block_inv[block]
+		$ProgressBar.value -= fuelValue[block] * globals.block_inv[block]
 		globals.block_inv[block] = 0
 	#print("Block inv: ", globals.block_inv)
 	#print("Refiner inv: ", globals.refinery_inv)
@@ -61,18 +86,20 @@ func transferBlocksToFurnace():
 	
 
 func _on_countdown_tick():
+	print("time ", countdown_time)
 	if countdown_time > 0:
 		if fuelStored > 0.1 and furnaceTier < 4:
 			fuelConsumed += furnaceConsumption[furnaceTier]
 			fuelStored -= furnaceConsumption[furnaceTier]
 		countdown_time -= 1
+		$ProgressBar.value += 1
+		emit_signal("progressbar", $ProgressBar.value, $ProgressBar.max_value)
 		if countdown_time > furnaceTimer[furnaceTier]:
 			$Label.text = str(furnaceTimer[furnaceTier])
 		else:
 			$Label.text = str(countdown_time)
-			emit_signal("progressbar", countdown_time)
 		
-		$ProgressBar.value = furnaceTimer[furnaceTier] - countdown_time
+		#$ProgressBar.value = furnaceTimer[furnaceTier] - countdown_time
 		if countdown_time == 0:
 			get_tree().change_scene_to_file("res://lose.tscn")
 			$OneSecondTimer.stop()
