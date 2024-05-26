@@ -33,6 +33,7 @@ func _input (event):
 				furnaceTier+=1
 				globals.toolTier = furnaceTier
 				globals.wait += 0.1
+				globals.reach += 5
 				audio_player.stream = upgrade_tool
 				audio_player.play()
 				print(globals.toolTier)

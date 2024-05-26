@@ -82,40 +82,40 @@ func mine(event):
 	var distance = local_to_map(rel_position)
 	var tile_mouse_pos = local_to_map(mouse_position)
 	var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
-	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach:
+	if distance.x < globals.reach && distance.x > -globals.reach && distance.y < globals.reach && distance.y > -globals.reach:
 		throw_object(distance)
 	await get_tree().create_timer(globals.wait).timeout
 	
 	
 	if globals.toolTier == 0:
-		if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, tile_mouse_pos) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, tile_mouse_pos) != 0 :
+		if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, tile_mouse_pos) != Vector2i(9,5) && distance.x <globals.reach && distance.x > -globals.reach && distance.y < globals.reach && distance.y > -globals.reach && get_cell_source_id(0, tile_mouse_pos) != 0 :
 			break_block(event, tile_atlas_coord, tile_mouse_pos)
 	if globals.toolTier == 1:
 		for i in 3:
 			for j in 3:
 				var coord =  Vector2i (tile_mouse_pos.x-1+i, tile_mouse_pos.y-1+j)
-				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, coord) != 0 :
+				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <globals.reach && distance.x > -globals.reach && distance.y < globals.reach && distance.y > -globals.reach && get_cell_source_id(0, coord) != 0 :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
 	if globals.toolTier == 2:
 		for i in 5:
 			for j in 5:
 				var coord =  Vector2i (tile_mouse_pos.x-2+i, tile_mouse_pos.y-2+j)
-				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, coord) != 0  :
+				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <globals.reach && distance.x > -globals.reach && distance.y < globals.reach && distance.y > -globals.reach && get_cell_source_id(0, coord) != 0  :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
 	if globals.toolTier == 3:
 		for i in 9:
 			for j in 9:
 				var coord =  Vector2i (tile_mouse_pos.x-4+i, tile_mouse_pos.y-4+j)
-				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, coord) != 0  :
+				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <globals.reach && distance.x > -globals.reach && distance.y < globals.reach && distance.y > -globals.reach && get_cell_source_id(0, coord) != 0  :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
 	if globals.toolTier == 4:
 		for i in 15:
 			for j in 15:
 				var coord =  Vector2i (tile_mouse_pos.x-7+i, tile_mouse_pos.y-7+j)
-				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach && get_cell_source_id(0, coord) != 0 :
+				if current_tile_pos != tile_mouse_pos && get_cell_atlas_coords(0, coord) != Vector2i(9,5) && distance.x <globals.reach && distance.x > -globals.reach && distance.y < globals.reach && distance.y > -globals.reach && get_cell_source_id(0, coord) != 0 :
 					tile_atlas_coord = get_cell_atlas_coords(0,coord)
 					break_block(event, tile_atlas_coord, coord)
 
