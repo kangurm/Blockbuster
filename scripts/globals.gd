@@ -1,5 +1,6 @@
 extends Node
 
+var catReached = false
 var toolTier = 0
 
 const fuel_value = {
