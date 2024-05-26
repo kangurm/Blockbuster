@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dmjsplrotd4hg" path="res://Sounds/breakblock_1.wav" id="11_nfaxm"]
 [ext_resource type="AudioStream" uid="uid://d0u23k0hi63oe" path="res://Sounds/MainMusic.wav" id="12_ap3nh"]
 [ext_resource type="PackedScene" uid="uid://qng2ppncexs7" path="res://Cat/cat.tscn" id="13_tiuji"]
+[ext_resource type="Texture2D" uid="uid://yc7fqvrlpdst" path="res://tutorial.png" id="14_gr5ie"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_v720g")
@@ -99,3 +100,8 @@ volume_db = -18.835
 
 [node name="Cat" parent="." instance=ExtResource("13_tiuji")]
 position = Vector2(1556, 1193)
+
+[node name="Tutorial" type="Sprite2D" parent="."]
+position = Vector2(752, 35.5)
+scale = Vector2(0.138434, 0.143939)
+texture = ExtResource("14_gr5ie")
