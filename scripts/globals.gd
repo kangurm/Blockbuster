@@ -1,6 +1,8 @@
 extends Node
 
 var toolTier = 0
+var catReached = false
+var wait = float(0.1)
 
 const fuel_value = {
 	"uranium": 16,

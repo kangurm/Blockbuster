@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0q181kjlx5ao"]
+[gd_scene load_steps=14 format=3 uid="uid://d0q181kjlx5ao"]
 
 [ext_resource type="Script" path="res://scenes/grid-test.gd" id="1_e5p4q"]
 [ext_resource type="TileSet" uid="uid://bjj2rwg43xy74" path="res://tileset.tres" id="1_njt13"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://n17r27gghvhi" path="res://sky.png" id="6_dhokb"]
 [ext_resource type="AudioStream" uid="uid://dmjsplrotd4hg" path="res://Sounds/breakblock_1.wav" id="11_n70nb"]
 [ext_resource type="AudioStream" uid="uid://d0u23k0hi63oe" path="res://Sounds/MainMusic.wav" id="11_sxwsy"]
+[ext_resource type="PackedScene" uid="uid://qng2ppncexs7" path="res://Cat/cat.tscn" id="13_xlwv7"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_e5p4q")
@@ -95,3 +96,6 @@ volume_db = -15.782
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_sxwsy")
 volume_db = -18.835
+
+[node name="Cat" parent="." instance=ExtResource("13_xlwv7")]
+position = Vector2(1556, 1193)
