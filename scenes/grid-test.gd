@@ -32,4 +32,5 @@ func _ready():
 	#refinery.transfered.connect(hud._update_inventory_UI)
 	refinery.progressbar.connect(hud._update_onscreen_progressbar)
 	refinery.transfered.connect(hud._update_inventory_UI)
+	tile_map.block_placed.connect(hud._update_inventory_UI)
 	

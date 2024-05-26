@@ -95,4 +95,4 @@ func _physics_process(delta):
 	
 func _on_tile_broken(key):
 	score += 10
-	print("Score: ", score)
+	#print("Score: ", score)
