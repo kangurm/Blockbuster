@@ -24,6 +24,7 @@ func _ready():
 		"uranium": 0,
 }
 	globals.toolTier = 0
+	globals.catReached = false
 	
 	#connect signals
 	tile_map.tile_broken.connect(player._on_tile_broken)

@@ -19,12 +19,12 @@ signal progressbar
 
 func _input (event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		
-		
 		var sprite = get_node("StaticBody2D/Sprite2D")
 		var sprite_rect = sprite.get_rect()
 		var local_mouse_pos = sprite.to_local(get_global_mouse_position())
 		if sprite_rect.has_point(local_mouse_pos):
+			if globals.catReached == true:
+				get_tree().change_scene_to_file("res://win.tscn")
 			transferBlocksToFurnace()
 			print("Fuel Consumed:", fuelConsumed)
 			print("Fuel Stored:", fuelStored)
