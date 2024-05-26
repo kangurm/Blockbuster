@@ -47,7 +47,6 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = 32.0
 offset_top = -69.0
 offset_right = 57.0
@@ -77,14 +76,13 @@ custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_qhe6q")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="FuelConsumed" type="Label" parent="HFlowContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
-text = "0"
+text = "100"
 max_lines_visible = 1
 text_direction = 1
 
@@ -102,7 +100,7 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
-text = "2"
+text = "50"
 max_lines_visible = 1
 text_direction = 1
 
