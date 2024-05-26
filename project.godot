@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="grid world"
+config/name="KivioliBlockBusters"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
