@@ -2,6 +2,7 @@ extends TileMap
 
 signal tile_broken
 signal object_thrown
+signal block_placed
 
 
 var wait = 0.1
@@ -138,7 +139,7 @@ func _input (event):
 		var mouse_position = get_global_mouse_position()
 		var tile_mouse_pos = local_to_map(mouse_position)
 		var source_id = 1
-		var atlas_coord = Vector2i(0,0)
+		var atlas_coord = Vector2i(-1,-1)
 		
 		var screen_size = get_viewport_rect().size
 		var center = Vector2(screen_size.x/2, screen_size.y/2)
@@ -146,8 +147,29 @@ func _input (event):
 		var rel_position = mouse_pos - center
 		var distance = local_to_map(rel_position)
 		
+		var blockUsed
+		print(globals.block_inv)
+		if globals.block_inv['uranium'] > 0:
+			atlas_coord = Vector2i(0,4)
+			blockUsed = 'uranium'
+		if globals.block_inv['oil_shale'] > 0:
+			atlas_coord = Vector2i(0,3)
+			blockUsed = 'oil_shale'
+		if globals.block_inv['obsidian'] > 0:
+			atlas_coord = Vector2i(0,2)
+			blockUsed = 'obsidian'
+		if globals.block_inv['granite'] > 0:
+			atlas_coord = Vector2i(0,1)
+			blockUsed = 'granite'
+		if globals.block_inv['stone'] > 0:
+			atlas_coord = Vector2i(0,0)
+			blockUsed = 'stone'
 		playerPos = get_node('../../Node2D/player').global_position
 		var placeBool = dont_place.find(distance)
-		
-		if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1 :
-			set_cell(0,tile_mouse_pos, source_id, atlas_coord)
+		if atlas_coord == Vector2i(-1,-1) :
+			print('not enough blocks')
+		else:
+			if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1:
+				globals.block_inv[blockUsed] -=1
+				emit_signal('block_placed', blockUsed)
+				set_cell(0,tile_mouse_pos, source_id, atlas_coord)
