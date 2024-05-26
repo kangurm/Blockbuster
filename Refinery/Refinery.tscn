@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Refinery/Refinery.gd" id="1_yj67s"]
 [ext_resource type="Texture2D" uid="uid://vm8lvqo31lkj" path="res://Refinery/cute.png" id="2_7slai"]
-[ext_resource type="Texture2D" uid="uid://c0e0la7d5ylno" path="res://icon.svg" id="3_kyyxj"]
+[ext_resource type="Texture2D" uid="uid://q75a7v04khem" path="res://icon.svg" id="3_kyyxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqja"]
 size = Vector2(809.524, 857.143)
