@@ -3,6 +3,12 @@ extends Node2D
 @onready var prefix_inv = $CanvasLayer/Control/HFlowContainer
 var atlas_texture = preload("res://placeholder.png")
 
+func capitalize_words(text):
+	var words = text.split("_")
+	for i in range(words.size()):
+		words[i] = words[i].capitalize()
+	return " ".join(words)
+
 func UI_add_inventory_container(key):
 	# create a box container to hold texture and label
 	var vertical_container = VFlowContainer.new()
@@ -23,17 +29,23 @@ func UI_add_inventory_container(key):
 		atlas_tex.region = region
 		texture_rect.texture = atlas_tex
 		#texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
-		print("added texture")
 	else:
 		print("Texture for key not found:", key)
 
 	# add label as a child to box container
 	var label = Label.new()
 	label.set_name("label" + key)
-	label.text = str(globals.block_inv[key])
+	label.text = capitalize_words(key)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_FILL
 	vertical_container.add_child(label)	
+	
+	var label_count = Label.new()
+	label_count.set_name("label_count" + key)
+	label_count.text = str(globals.block_inv[key])
+	label_count.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label_count.vertical_alignment = VERTICAL_ALIGNMENT_FILL
+	vertical_container.add_child(label_count)	
 	
 	print("Finished creating container")
 
@@ -41,7 +53,7 @@ func UI_remove_inventory_container():
 	print("yahoo")
 
 func UI_update_item_count(key):
-	prefix_inv.get_node(key).get_node("label" + key).text = str(globals.block_inv[key])
+	prefix_inv.get_node(key).get_node("label_count" + key).text = str(globals.block_inv[key])
 
 func _update_inventory_UI(key):
 	if key == "all":
@@ -53,6 +65,6 @@ func _update_inventory_UI(key):
 		UI_update_item_count(key)
 		return
 	UI_add_inventory_container(key)
-	#for key in globals.block_inv.keys():
-		#if globals.block_inv[key] >= 0 and not prefix_inv.has_node(key):
-			#UI_add_inventory_container(key)
+
+func _update_onscreen_progressbar(countdown):
+	$CanvasLayer/Control/ProgressBar.value = countdown;
