@@ -32,18 +32,20 @@ func _input (event):
 			if fuelConsumed > upgradeCost[furnaceTier] and furnaceTier<4:
 				furnaceTier+=1
 				globals.toolTier = furnaceTier
+				globals.wait += 0.1
 				audio_player.stream = upgrade_tool
 				audio_player.play()
 				print(globals.toolTier)
 			
-				
-	
-	
-	
+			
 	#
 	#if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		#$OneSecondTimer.start()
 		##print(globals.block_inv)
+
+func update_labels():
+	$TextureRect/HFlowContainer/FuelConsumed.text = str(fuelConsumed)
+	$TextureRect/HFlowContainer/UpgradeCost.text = str(upgradeCost[furnaceTier])
 
 func transferBlocksToFurnace():
 	for block in globals.block_inv:
@@ -73,6 +75,7 @@ func _on_countdown_tick():
 		if countdown_time == 0:
 			get_tree().change_scene_to_file("res://lose.tscn")
 			$OneSecondTimer.stop()
+		update_labels()
 	
 	#warning sounds
 	if countdown_time == furnaceTimer[furnaceTier]/2:

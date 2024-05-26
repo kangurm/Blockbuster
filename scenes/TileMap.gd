@@ -5,7 +5,7 @@ signal object_thrown
 signal block_placed
 
 
-var wait = 0.1
+#var wait = 0.1
 var reach = 40
 var current_tile_pos: Vector2i
 
@@ -47,13 +47,18 @@ func throw_object(event):
 	emit_signal('object_thrown', event.x)
 	var sprite = Sprite2D.new()
 	if globals.toolTier == 0:
-		sprite.texture = load('res://projectile/punch-pixelicious2.png')		
+		sprite.texture = load('res://projectile/punch-pixelicious2.png')
 	else:
-		sprite.texture = load('res://projectile/doll.png')
+		if globals.toolTier ==1:
+			sprite.texture = load('res://projectile/doll.png')
+		elif globals.toolTier ==2:
+			sprite.texture = load('res://projectile/doll2.png')
+		elif globals.toolTier ==3:
+			sprite.texture = load('res://projectile/doll3.png')
+		elif globals.toolTier ==4:
+			sprite.texture = load('res://projectile/doll4.png')
 		sprite.rotate(-30)
-	#var anime = get_node('../../Node2D/player/AnimatedSprite2D')
-	#anime.animation = 'idle'
-	#anime.flip_h = event.x < 0
+
 	playerPos =  get_node('../../Node2D/player').global_position
 	
 	sprite.scale = Vector2(0.02,0.02)
@@ -62,8 +67,8 @@ func throw_object(event):
 	add_child(sprite)
 	
 	var tween = create_tween()
-	tween.tween_property(sprite, 'position',get_global_mouse_position(), wait)
-	await get_tree().create_timer(wait).timeout
+	tween.tween_property(sprite, 'position',get_global_mouse_position(), globals.wait)
+	await get_tree().create_timer(globals.wait).timeout
 	remove_child(sprite)
 	
 
@@ -80,7 +85,7 @@ func mine(event):
 	var tile_atlas_coord = get_cell_atlas_coords(0, tile_mouse_pos)
 	if distance.x <reach && distance.x > -reach && distance.y < reach && distance.y > -reach:
 		throw_object(distance)
-	await get_tree().create_timer(wait).timeout
+	await get_tree().create_timer(globals.wait).timeout
 	
 	
 	if globals.toolTier == 0:
@@ -122,13 +127,13 @@ func _input (event):
 	if Input.is_action_just_pressed("pressI"):
 		if globals.toolTier < 4:
 			globals.toolTier += 1
-			wait += 0.1
+			globals.wait += 0.1
 			print('breaker globals.toolTier:', globals.toolTier)
 	if Input.is_action_just_pressed("pressJ"):
 		if globals.toolTier >0:
 			globals.toolTier -=1
-			wait -= 0.1
-			print('breaker globals.toolTier', globals.toolTier)
+			globals.wait -= 0.1
+			print('breaker globals.toolTier:', globals.toolTier)
 	if Input.is_action_just_pressed("mb_left"):
 		while true:
 			if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
@@ -172,4 +177,5 @@ func _input (event):
 			if get_cell_atlas_coords(0, tile_mouse_pos) == Vector2i(-1,-1) && placeBool == -1:
 				globals.block_inv[blockUsed] -=1
 				emit_signal('block_placed', blockUsed)
+				emit_signal('object_thrown', distance.x)
 				set_cell(0,tile_mouse_pos, source_id, atlas_coord)
