@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0q181kjlx5ao"]
+[gd_scene load_steps=13 format=3 uid="uid://d0q181kjlx5ao"]
 
 [ext_resource type="Script" path="res://scenes/grid-test.gd" id="1_e5p4q"]
 [ext_resource type="TileSet" uid="uid://bjj2rwg43xy74" path="res://tileset.tres" id="1_njt13"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ba7hrjgje3yyl" path="res://Refinery/Refinery.tscn" id="5_726mq"]
 [ext_resource type="Texture2D" uid="uid://die063jcdhcy4" path="res://background.png" id="6_0yndl"]
 [ext_resource type="Texture2D" uid="uid://n17r27gghvhi" path="res://sky.png" id="6_dhokb"]
+[ext_resource type="AudioStream" uid="uid://dmjsplrotd4hg" path="res://Sounds/breakblock_1.wav" id="11_n70nb"]
+[ext_resource type="AudioStream" uid="uid://d0u23k0hi63oe" path="res://Sounds/MainMusic.wav" id="11_sxwsy"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_e5p4q")
@@ -85,3 +87,11 @@ script = ExtResource("2_x7qx0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="TileMap"]
 color = Color(0.29219, 0.29219, 0.29219, 1)
+
+[node name="BlockBreak" type="AudioStreamPlayer" parent="TileMap"]
+stream = ExtResource("11_n70nb")
+volume_db = 6.233
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_sxwsy")
+volume_db = -18.835

@@ -7,6 +7,7 @@ extends Node2D
 var score = 0
 
 func _ready():
+	$AudioStreamPlayer.play()
 	#reset globals
 	globals.refinery_inv = {
 	"stone": 0,

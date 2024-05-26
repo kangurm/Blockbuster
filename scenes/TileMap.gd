@@ -16,6 +16,7 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 	if globals.toolTier >=coordY:
 		if coordX + damage < 5 && coordX > -1:
 			set_cell(0, tile_mouse_pos,1, Vector2i(coordX+damage, coordY))
+			$BlockBreak.play()
 		else:
 			var block_type
 			# Air block
@@ -38,6 +39,7 @@ func break_block(event, tile_atlas_coord, tile_mouse_pos):
 				block_type = 'stone'
 			set_cell(0, tile_mouse_pos, -1)
 			emit_signal('tile_broken', block_type)
+			
 
 @onready var playerPos =  get_node('../../Node2D/player').global_position
 func throw_object(event):

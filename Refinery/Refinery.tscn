@@ -56,4 +56,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -16.378
+
 [connection signal="timeout" from="OneSecondTimer" to="." method="_on_countdown_tick"]
