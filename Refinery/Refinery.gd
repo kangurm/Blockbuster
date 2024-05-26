@@ -9,7 +9,11 @@ var furnaceTier = 0
 var fuelConsumed = 0
 var fuelStored = 0
 var countdown_time = furnaceTimer[furnaceTier]
-
+var warn1 = preload("res://Sounds/refinery warning.wav")
+var warn2 = preload("res://Sounds/refinerywarn2.wav")
+var warn3 = preload("res://Sounds/refinerywarn3.wav")
+var upgrade_tool = preload("res://Sounds/upgradepickup.wav")
+@onready var audio_player = $AudioStreamPlayer
 signal progressbar
 
 
@@ -28,16 +32,19 @@ func _input (event):
 			if fuelConsumed > upgradeCost[furnaceTier] and furnaceTier<4:
 				furnaceTier+=1
 				globals.toolTier = furnaceTier
+				audio_player.stream = upgrade_tool
+				audio_player.play()
 				print(globals.toolTier)
 			
-				
-	
-	
-	
+			
 	#
 	#if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		#$OneSecondTimer.start()
 		##print(globals.block_inv)
+
+func update_labels():
+	$TextureRect/HFlowContainer/FuelConsumed.text = str(fuelConsumed)
+	$TextureRect/HFlowContainer/UpgradeCost.text = str(upgradeCost[furnaceTier])
 
 func transferBlocksToFurnace():
 	for block in globals.block_inv:
@@ -67,6 +74,19 @@ func _on_countdown_tick():
 		if countdown_time == 0:
 			get_tree().change_scene_to_file("res://lose.tscn")
 			$OneSecondTimer.stop()
+		update_labels()
+	
+	#warning sounds
+	if countdown_time == furnaceTimer[furnaceTier]/2:
+		audio_player.stream = warn1
+		audio_player.play()
+	if countdown_time == furnaceTimer[furnaceTier]/3:
+		audio_player.stream = warn2
+		audio_player.play()
+	if countdown_time == furnaceTimer[furnaceTier]/5:
+		audio_player.stream = warn3
+		audio_player.play()
+		
 func clearPlayerInventroy():
 	print("Before:", globals.block_inv)
 	for key in globals.block_inv:

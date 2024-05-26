@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba7hrjgje3yyl"]
+[gd_scene load_steps=6 format=3 uid="uid://ba7hrjgje3yyl"]
 
 [ext_resource type="Script" path="res://Refinery/Refinery.gd" id="1_yj67s"]
 [ext_resource type="Texture2D" uid="uid://vm8lvqo31lkj" path="res://Refinery/cute.png" id="2_7slai"]
+[ext_resource type="Texture2D" uid="uid://c0e0la7d5ylno" path="res://icon.svg" id="3_kyyxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqja"]
 size = Vector2(809.524, 857.143)
@@ -55,5 +56,51 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
+offset_left = -9.0
+offset_top = -122.0
+offset_right = 16.0
+offset_bottom = -97.0
+texture = ExtResource("3_kyyxj")
+expand_mode = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="TextureRect"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+offset_left = -15.0
+offset_top = 25.0
+offset_right = 85.0
+offset_bottom = 65.0
+
+[node name="FuelConsumed" type="Label" parent="TextureRect/HFlowContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "100"
+max_lines_visible = 1
+text_direction = 1
+
+[node name="Slash" type="Label" parent="TextureRect/HFlowContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "/"
+max_lines_visible = 1
+text_direction = 1
+
+[node name="UpgradeCost" type="Label" parent="TextureRect/HFlowContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "50"
+max_lines_visible = 1
+text_direction = 1
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -16.378
 
 [connection signal="timeout" from="OneSecondTimer" to="." method="_on_countdown_tick"]
