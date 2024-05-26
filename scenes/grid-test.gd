@@ -9,18 +9,18 @@ var score = 0
 func _ready():
 	#reset globals
 	globals.refinery_inv = {
-	"dirt": 0,
 	"stone": 0,
 	"granite": 0,
 	"obsidian": 0,
 	"oil_shale": 0,
+	"uranium": 0,
 }
 	globals.block_inv = {
-		"dirt": 0,
 		"stone": 0,
 		"granite": 0,
 		"obsidian": 0,
 		"oil_shale": 0,
+		"uranium": 0,
 }
 	globals.toolTier = 0
 	
