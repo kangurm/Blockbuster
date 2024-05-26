@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Refinery/Refinery.gd" id="1_yj67s"]
 [ext_resource type="Texture2D" uid="uid://vm8lvqo31lkj" path="res://Refinery/cute.png" id="2_7slai"]
-[ext_resource type="Texture2D" uid="uid://c0e0la7d5ylno" path="res://icon.svg" id="3_kyyxj"]
+[ext_resource type="Texture2D" uid="uid://bp0rl6fyb5rd8" path="res://Tiers/tier1_icon.png" id="3_qhe6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqja"]
 size = Vector2(809.524, 857.143)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts0pl"]
-bg_color = Color(0.937255, 0.227451, 0.0470588, 0.501961)
+bg_color = Color(0.937255, 0.227451, 0.0470588, 0.807843)
 border_width_left = 100
 border_width_right = 100
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -40,7 +40,7 @@ offset_bottom = 1851.0
 scale = Vector2(0.0218023, 0.0499609)
 theme_override_font_sizes/font_size = 1000
 theme_override_styles/fill = SubResource("StyleBoxFlat_ts0pl")
-max_value = 60.0
+max_value = 30.0
 step = 1.0
 fill_mode = 3
 show_percentage = false
@@ -57,24 +57,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(25, 25)
-offset_left = -9.0
-offset_top = -122.0
-offset_right = 16.0
-offset_bottom = -97.0
-texture = ExtResource("3_kyyxj")
-expand_mode = 1
-
-[node name="HFlowContainer" type="HFlowContainer" parent="TextureRect"]
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
-offset_left = -15.0
-offset_top = 25.0
-offset_right = 85.0
-offset_bottom = 65.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -89.0
+offset_right = 89.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="FuelConsumed" type="Label" parent="TextureRect/HFlowContainer"]
+[node name="TextureRect" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("3_qhe6q")
+expand_mode = 1
+
+[node name="FuelConsumed" type="Label" parent="HFlowContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -83,7 +86,7 @@ text = "100"
 max_lines_visible = 1
 text_direction = 1
 
-[node name="Slash" type="Label" parent="TextureRect/HFlowContainer"]
+[node name="Slash" type="Label" parent="HFlowContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -92,7 +95,7 @@ text = "/"
 max_lines_visible = 1
 text_direction = 1
 
-[node name="UpgradeCost" type="Label" parent="TextureRect/HFlowContainer"]
+[node name="UpgradeCost" type="Label" parent="HFlowContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -100,6 +103,7 @@ theme_override_font_sizes/font_size = 15
 text = "50"
 max_lines_visible = 1
 text_direction = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -16.378
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://chqcgd8hvxin2"]
+[gd_scene load_steps=4 format=3 uid="uid://chqcgd8hvxin2"]
 
 [ext_resource type="Script" path="res://Player/HUD/HUD.gd" id="1_0oipl"]
+[ext_resource type="Texture2D" uid="uid://iv7gg3pugkke" path="res://Pipe/pipe.png" id="2_gfuss"]
+[ext_resource type="Texture2D" uid="uid://cim6wvqwiiguw" path="res://Pipe/pipe_progress.png" id="3_fb0v5"]
 
 [node name="HUD" type="Node2D"]
 position = Vector2(0, -1)
@@ -26,16 +28,18 @@ offset_right = 1000.0
 offset_bottom = 100.0
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -54.0
+offset_left = -66.0
 offset_top = 10.0
 offset_right = -12.0
-offset_bottom = 142.0
+offset_bottom = 496.0
 grow_horizontal = 0
-value = 100.0
+max_value = 30.0
 fill_mode = 3
-show_percentage = false
+texture_under = ExtResource("2_gfuss")
+texture_progress = ExtResource("3_fb0v5")

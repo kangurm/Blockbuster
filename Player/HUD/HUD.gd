@@ -70,5 +70,7 @@ func _update_inventory_UI(key):
 		
 	UI_add_inventory_container(key)
 
-func _update_onscreen_progressbar(countdown):
-	$CanvasLayer/Control/ProgressBar.value = countdown;
+func _update_onscreen_progressbar(value, max_value):
+	$CanvasLayer/Control/TextureProgressBar.value = value
+	$CanvasLayer/Control/TextureProgressBar.max_value = max_value
+	print("HUD progress, ", $CanvasLayer/Control/TextureProgressBar.value)
