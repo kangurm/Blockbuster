@@ -32,6 +32,7 @@ func _input (event):
 			if fuelConsumed > upgradeCost[furnaceTier] and furnaceTier<4:
 				furnaceTier+=1
 				globals.toolTier = furnaceTier
+				globals.wait += 0.1
 				audio_player.stream = upgrade_tool
 				audio_player.play()
 				print(globals.toolTier)

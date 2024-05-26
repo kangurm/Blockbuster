@@ -86,10 +86,15 @@ func _physics_process(delta):
 		if !sayan:
 			SPEED = 750
 			JUMP_FORCE = -750
+			$Camera2D.zoom.x = 1
+			$Camera2D.zoom.y = 1
+			
 			sayan=true
 		else:
 			SPEED = 300
 			JUMP_FORCE = -500
+			$Camera2D.zoom.x = 4
+			$Camera2D.zoom.y = 4
 			sayan=false
 
 	# Add the gravity (y)
@@ -124,24 +129,7 @@ func _physics_process(delta):
 		# Animation
 		
 	animation()
-	#if is_on_floor():
-		#if throw && direction == 0:
-			#direction = mirror
-			#throw = false
-			#LAST_DIRECTION = mirror
-		#if direction != 0:
-			#$AnimatedSprite2D.animation = ANIMATION_MOVE
-			#$AnimatedSprite2D.flip_h = direction < 0
-		#else:
-			#$AnimatedSprite2D.stop()
-	#else:
-		#if throw && Input.get_axis("ui_left", "ui_right") == 0:
-			#LAST_DIRECTION= mirror
-			#throw = false
-		#$AnimatedSprite2D.animation = ANIMATION_JUMP
-		#$AnimatedSprite2D.flip_h = LAST_DIRECTION < 0
-#
-	#$AnimatedSprite2D.play()
+
 
 	move_and_slide()
 	

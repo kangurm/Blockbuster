@@ -69,6 +69,7 @@ expand_mode = 1
 [node name="HFlowContainer" type="HFlowContainer" parent="TextureRect"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
 offset_left = -15.0
 offset_top = 25.0
 offset_right = 85.0
@@ -100,6 +101,7 @@ theme_override_font_sizes/font_size = 15
 text = "50"
 max_lines_visible = 1
 text_direction = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -16.378
 
