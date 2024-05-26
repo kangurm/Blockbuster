@@ -120,8 +120,8 @@ func _on_countdown_tick():
 		audio_player.stream = warn3
 		audio_player.play()
 		
-func clearPlayerInventroy():
-	#print("Before:", globals.block_inv)
-	for key in globals.block_inv:
-		# Insert the key and value into a text string
-		#print("index: %s, value: %d" % [key, globals.block_inv[key]])
+#func clearPlayerInventroy():
+	##print("Before:", globals.block_inv)
+	##for key in globals.block_inv:
+		## Insert the key and value into a text string
+		##print("index: %s, value: %d" % [key, globals.block_inv[key]])
