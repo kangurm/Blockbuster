@@ -27,6 +27,8 @@ func _ready():
 	#connect signals
 	tile_map.tile_broken.connect(player._on_tile_broken)
 	tile_map.tile_broken.connect(hud._update_inventory_UI)
+	tile_map.object_thrown.connect(player._thrown)
+	#refinery.transfered.connect(hud._update_inventory_UI)
 	refinery.progressbar.connect(hud._update_onscreen_progressbar)
 	refinery.transfered.connect(hud._update_inventory_UI)
 	

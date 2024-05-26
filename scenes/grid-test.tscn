@@ -75,7 +75,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 4096, 940)
 
 [node name="player" parent="." instance=ExtResource("2_kc10y")]
-position = Vector2(905, -38)
+position = Vector2(890, -51)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_njt13")
